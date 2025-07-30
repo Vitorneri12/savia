@@ -1,0 +1,1260 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8" /><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.v="1.2.3",this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",t=>{this.persisted=t.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(t){if(document.hidden){t._triggerListener();return}this.triggerEvents.forEach(e=>window.addEventListener(e,t.userEventHandler,{passive:!0})),window.addEventListener("touchstart",t.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",t.touchStartHandler),document.addEventListener("visibilitychange",t.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(t=>window.removeEventListener(t,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(t){"HTML"!==t.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),t.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(t){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(t){t.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(t.target,"rocket-onclick","onclick"),this.interceptedClicks.push(t),t.preventDefault(),t.stopPropagation(),t.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(t=>{t.target.dispatchEvent(new MouseEvent("click",{view:t.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(t=>{this._isClickPending?this._pendingClickFinished=t:t()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(t,e,r){t.hasAttribute&&t.hasAttribute(e)&&(event.target.setAttribute(r,event.target.getAttribute(e)),event.target.removeAttribute(e))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let t=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{if(e.hasAttribute("src")){let r=new URL(e.src).origin;r!==location.origin&&t.push({src:r,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}}),t=[...new Map(t.map(t=>[JSON.stringify(t),t])).values()],this._batchInjectResourceHints(t,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(t){console.error(t)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)})}async _transformScript(t){return new Promise((await this._littleBreath(),navigator.userAgent.indexOf("Firefox/")>0||""===navigator.vendor)?e=>{let r=document.createElement("script");[...t.attributes].forEach(t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),r.setAttribute(e,t.nodeValue))}),t.text&&(r.text=t.text),r.hasAttribute("src")?(r.addEventListener("load",e),r.addEventListener("error",e)):(r.text=t.text,e());try{t.parentNode.replaceChild(r,t)}catch(i){e()}}:async e=>{function r(){t.setAttribute("data-rocket-status","failed"),e()}try{let i=t.getAttribute("data-rocket-type"),n=t.getAttribute("data-rocket-src");t.text,i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",function r(){t.setAttribute("data-rocket-status","executed"),e()}),t.addEventListener("error",r),n?(t.removeAttribute("data-rocket-src"),t.src=n):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}catch(s){r()}})}async _loadScriptsFromList(t){let e=t.shift();return e&&e.isConnected?(await this._transformScript(e),this._loadScriptsFromList(t)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(t,e){var r=document.createDocumentFragment();t.forEach(t=>{let i=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(i){let n=document.createElement("link");n.href=i,n.rel=e,"preconnect"!==e&&(n.as="script"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),r.appendChild(n),this.trash.push(n)}}),document.head.appendChild(r)}_delayEventListeners(t){let e={};function r(t,r){!function t(r){!e[r]&&(e[r]={originalFunctions:{add:r.addEventListener,remove:r.removeEventListener},eventsToRewrite:[]},r.addEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.add.apply(r,arguments)},r.removeEventListener=function(){arguments[0]=i(arguments[0]),e[r].originalFunctions.remove.apply(r,arguments)});function i(t){return e[r].eventsToRewrite.indexOf(t)>=0?"rocket-"+t:t}}(t),e[t].eventsToRewrite.push(r)}function i(t,e){let r=t[e];Object.defineProperty(t,e,{get:()=>r||function(){},set(i){t["rocket"+e]=r=i}})}r(document,"DOMContentLoaded"),r(window,"DOMContentLoaded"),r(window,"load"),r(window,"pageshow"),r(document,"readystatechange"),i(document,"onreadystatechange"),i(window,"onload"),i(window,"onpageshow")}_delayJQueryReady(t){let e;function r(r){if(r&&r.fn&&!t.allJQueries.includes(r)){r.fn.ready=r.fn.init.prototype.ready=function(e){return t.domReadyFired?e.bind(document)(r):document.addEventListener("rocket-DOMContentLoaded",()=>e.bind(document)(r)),r([])};let i=r.fn.on;r.fn.on=r.fn.init.prototype.on=function(){if(this[0]===window){function t(t){return t.split(" ").map(t=>"load"===t||0===t.indexOf("load.")?"rocket-jquery-load":t).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=t(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(e=>{let r=arguments[0][e];delete arguments[0][e],arguments[0][t(e)]=r})}return i.apply(this,arguments),this},t.allJQueries.push(r)}e=r}r(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){r(t)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(t=>t(window).trigger("rocket-jquery-load")),await this._littleBreath();let t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let t=new Map;document.write=document.writeln=function(e){let r=document.currentScript;r||console.error("WPRocket unable to document.write this: "+e);let i=document.createRange(),n=r.parentElement,s=t.get(r);void 0===s&&(s=r.nextSibling,t.set(r,s));let a=document.createDocumentFragment();i.setStart(a,0),a.appendChild(i.createContextualFragment(e)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(t=>setTimeout(t)):new Promise(t=>requestAnimationFrame(t))}_emptyTrash(){this.trash.forEach(t=>t.remove())}static run(){let t=new RocketLazyLoadScripts;t._addUserInteractionListener(t)}}RocketLazyLoadScripts.run();</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+	<link rel="pingback" href="https://mkt.estrategia.com/oab/xmlrpc.php" />
+
+	<!-- Pinterest Tag -->
+	<script type="rocketlazyloadscript">
+!function(e){if(!window.pintrk){window.pintrk = function () {
+window.pintrk.queue.push(Array.prototype.slice.call(arguments))};var
+  n=window.pintrk;n.queue=[],n.version="3.0";var
+  t=document.createElement("script");t.async=!0,t.src=e;var
+  r=document.getElementsByTagName("script")[0];
+  r.parentNode.insertBefore(t,r)}}("https://s.pinimg.com/ct/core.js");
+pintrk('load', '2613529955763', {em: '<user_email_address>'});
+pintrk('page');
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt=""
+  src="https://ct.pinterest.com/v3/?event=init&tid=2613529955763&pd[em]=<hashed_email_address>&noscript=1" />
+</noscript>
+<!-- end Pinterest Tag -->
+
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+_linkedin_partner_id = "4008481";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=4008481&fmt=gif" />
+</noscript>
+
+
+	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+<link rel="preconnect" href="https://www.googletagmanager.com"><link rel="preconnect" href="https://connect.facebook.net"><link rel="preconnect" href="www.clarity.ms">
+	<!-- This site is optimized with the Yoast SEO Premium plugin v21.4 (Yoast SEO v25.4) - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>OAB 44 - Revisão Final - 2 semanas de conteúdo gratuito para alcançar 40 pontos sem perder tempo - Estratégia OAB</title>
+	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="OAB 44 - Revisão Final - 2 semanas de conteúdo gratuito para alcançar 40 pontos sem perder tempo" />
+	<meta property="og:url" content="https://mkt.estrategia.com/oab/oab-44-revisao-final/" />
+	<meta property="og:site_name" content="Estratégia OAB" />
+	<meta property="article:publisher" content="https://www.facebook.com/oabestrategia" />
+	<meta property="article:modified_time" content="2025-07-15T15:00:28+00:00" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://mkt.estrategia.com/oab/oab-44-revisao-final/","url":"https://mkt.estrategia.com/oab/oab-44-revisao-final/","name":"OAB 44 - Revisão Final - 2 semanas de conteúdo gratuito para alcançar 40 pontos sem perder tempo - Estratégia OAB","isPartOf":{"@id":"https://mkt.estrategia.com/oab/#website"},"datePublished":"2025-07-10T16:33:57+00:00","dateModified":"2025-07-15T15:00:28+00:00","breadcrumb":{"@id":"https://mkt.estrategia.com/oab/oab-44-revisao-final/#breadcrumb"},"inLanguage":"pt-BR","potentialAction":[{"@type":"ReadAction","target":["https://mkt.estrategia.com/oab/oab-44-revisao-final/"]}]},{"@type":"BreadcrumbList","@id":"https://mkt.estrategia.com/oab/oab-44-revisao-final/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://mkt.estrategia.com/oab/"},{"@type":"ListItem","position":2,"name":"OAB 44 &#8211; Revisão Final &#8211; 2 semanas de conteúdo gratuito para alcançar 40 pontos sem perder tempo"}]},{"@type":"WebSite","@id":"https://mkt.estrategia.com/oab/#website","url":"https://mkt.estrategia.com/oab/","name":"Estratégia OAB","description":"Curso OAB: Preparação completa, online e 100% digital com foco na sua aprovação, disponível sempre que quiser. Estude no seu tempo e em qualquer lugar.","publisher":{"@id":"https://mkt.estrategia.com/oab/#organization"},"potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://mkt.estrategia.com/oab/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"pt-BR"},{"@type":"Organization","@id":"https://mkt.estrategia.com/oab/#organization","name":"Estratégia OAB","url":"https://mkt.estrategia.com/oab/","logo":{"@type":"ImageObject","inLanguage":"pt-BR","@id":"https://mkt.estrategia.com/oab/#/schema/logo/image/","url":"","contentUrl":"","caption":"Estratégia OAB"},"image":{"@id":"https://mkt.estrategia.com/oab/#/schema/logo/image/"},"sameAs":["https://www.facebook.com/oabestrategia","https://x.com/estrategiaoab","https://www.instagram.com/estrategiaoab/","https://www.tiktok.com/@estrategiaoab"]}]}</script>
+	<!-- / Yoast SEO Premium plugin. -->
+
+
+<link rel="alternate" type="application/rss+xml" title="Feed para Estratégia OAB &raquo;" href="https://mkt.estrategia.com/oab/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Feed de comentários para Estratégia OAB &raquo;" href="https://mkt.estrategia.com/oab/comments/feed/" />
+<meta content="Estrategia Gratis v.1.0" name="generator"/><link data-minify="1" rel='stylesheet' id='dynamic-images-style-css' href='https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/plugins/dynamic-images/assets/css/dynamic-images.css?ver=1752156715' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='divi-style-parent-css' href='https://mkt.estrategia.com/oab/wp-content/cache/background-css/mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/themes/Divi/style-static.min.css?ver=1752156715&wpr_t=1752589202' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='divi-style-css' href='https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/themes/estrategia_gratis/style.css?ver=1752156715' type='text/css' media='all' />
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+
+<!-- Snippet da etiqueta do Google (gtag.js) adicionado pelo Site Kit -->
+
+<!-- Snippet do Google Análises adicionado pelo Site Kit -->
+<script type="rocketlazyloadscript" async data-rocket-src="https://www.googletagmanager.com/gtag/js?id=GT-MJBB4GTX"></script>
+<!-- Fim do código da etiqueta do Google (gtag.js) adicionado pelo Site Kit -->
+<link rel="https://api.w.org/" href="https://mkt.estrategia.com/oab/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://mkt.estrategia.com/oab/wp-json/wp/v2/pages/227118" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mkt.estrategia.com/oab/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://mkt.estrategia.com/oab/?p=227118' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://mkt.estrategia.com/oab/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmkt.estrategia.com%2Foab%2Foab-44-revisao-final%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://mkt.estrategia.com/oab/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmkt.estrategia.com%2Foab%2Foab-44-revisao-final%2F&#038;format=xml" />
+<meta name="generator" content="Site Kit by Google 1.156.0" />		<script type="rocketlazyloadscript" data-rocket-type="text/javascript">
+				(function(c,l,a,r,i,t,y){
+					c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;
+					t.src="https://www.clarity.ms/tag/"+i+"?ref=wordpress";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+				})(window, document, "clarity", "script", "n5syo7quf2");
+		</script>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="google-site-verification" content="T0Rz_pUjV3kHKYsKGWBNfIrS8E6yFeS1GKndm57dQ-s"><!-- Preconnect para Google Tag Manager e Clarity -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.clarity.ms">
+
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TKT388L');</script>
+<!-- End Google Tag Manager --><link rel="icon" href="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2024/07/favicon-oab.webp" sizes="32x32" />
+<link rel="icon" href="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2024/07/favicon-oab.webp" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2024/07/favicon-oab.webp" />
+<meta name="msapplication-TileImage" content="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2024/07/favicon-oab.webp" />
+<link data-minify="1" rel='stylesheet' href='https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/themes/estrategia_gratis/style.css?ver=1752156715' media='print' onload="this.onload=null;this.media='all';">
+<noscript><link data-minify="1" rel='stylesheet' href='https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/themes/estrategia_gratis/style.css?ver=1752156715'></noscript>
+<link rel='stylesheet' href='https://mkt.estrategia.com/oab/wp-includes/css/dist/block-library/style.min.css' media='print' onload="this.onload=null;this.media='all';">
+<noscript><link rel='stylesheet' href='https://mkt.estrategia.com/oab/wp-includes/css/dist/block-library/style.min.css'></noscript>
+<style id="et-divi-customizer-global-cached-inline-styles">body,.et_pb_column_1_2 .et_quote_content blockquote cite,.et_pb_column_1_2 .et_link_content a.et_link_main_url,.et_pb_column_1_3 .et_quote_content blockquote cite,.et_pb_column_3_8 .et_quote_content blockquote cite,.et_pb_column_1_4 .et_quote_content blockquote cite,.et_pb_blog_grid .et_quote_content blockquote cite,.et_pb_column_1_3 .et_link_content a.et_link_main_url,.et_pb_column_3_8 .et_link_content a.et_link_main_url,.et_pb_column_1_4 .et_link_content a.et_link_main_url,.et_pb_blog_grid .et_link_content a.et_link_main_url,body .et_pb_bg_layout_light .et_pb_post p,body .et_pb_bg_layout_dark .et_pb_post p{font-size:14px}.et_pb_slide_content,.et_pb_best_value{font-size:15px}body{color:#444444}h1,h2,h3,h4,h5,h6{color:#444444}#et_search_icon:hover,.mobile_menu_bar:before,.mobile_menu_bar:after,.et_toggle_slide_menu:after,.et-social-icon a:hover,.et_pb_sum,.et_pb_pricing li a,.et_pb_pricing_table_button,.et_overlay:before,.entry-summary p.price ins,.et_pb_member_social_links a:hover,.et_pb_widget li a:hover,.et_pb_filterable_portfolio .et_pb_portfolio_filters li a.active,.et_pb_filterable_portfolio .et_pb_portofolio_pagination ul li a.active,.et_pb_gallery .et_pb_gallery_pagination ul li a.active,.wp-pagenavi span.current,.wp-pagenavi a:hover,.nav-single a,.tagged_as a,.posted_in a{color:#ae0a0b}.et_pb_contact_submit,.et_password_protected_form .et_submit_button,.et_pb_bg_layout_light .et_pb_newsletter_button,.comment-reply-link,.form-submit .et_pb_button,.et_pb_bg_layout_light .et_pb_promo_button,.et_pb_bg_layout_light .et_pb_more_button,.et_pb_contact p input[type="checkbox"]:checked+label i:before,.et_pb_bg_layout_light.et_pb_module.et_pb_button{color:#ae0a0b}.footer-widget h4{color:#ae0a0b}.et-search-form,.nav li ul,.et_mobile_menu,.footer-widget li:before,.et_pb_pricing li:before,blockquote{border-color:#ae0a0b}.et_pb_counter_amount,.et_pb_featured_table .et_pb_pricing_heading,.et_quote_content,.et_link_content,.et_audio_content,.et_pb_post_slider.et_pb_bg_layout_dark,.et_slide_in_menu_container,.et_pb_contact p input[type="radio"]:checked+label i:before{background-color:#ae0a0b}a{color:#ae0a0b}.et_secondary_nav_enabled #page-container #top-header{background-color:#ae0a0b!important}#et-secondary-nav li ul{background-color:#ae0a0b}#main-header .nav li ul a{color:rgba(0,0,0,0.7)}#top-menu li.current-menu-ancestor>a,#top-menu li.current-menu-item>a,#top-menu li.current_page_item>a{color:#ae0a0b}#main-footer{background-color:#ae0a0b}#main-footer .footer-widget h4,#main-footer .widget_block h1,#main-footer .widget_block h2,#main-footer .widget_block h3,#main-footer .widget_block h4,#main-footer .widget_block h5,#main-footer .widget_block h6{color:#ffffff}.footer-widget li:before{border-color:#ffffff}.footer-widget .et_pb_widget div,.footer-widget .et_pb_widget ul,.footer-widget .et_pb_widget ol,.footer-widget .et_pb_widget label{line-height:1.7em}.bottom-nav,.bottom-nav a,.bottom-nav li.current-menu-item a{color:#ffffff}#et-footer-nav .bottom-nav li.current-menu-item a{color:#ffffff}#footer-info,#footer-info a{color:#ffffff}body .et_pb_bg_layout_light.et_pb_button:hover,body .et_pb_bg_layout_light .et_pb_button:hover,body .et_pb_button:hover{border-radius:0px}@media only screen and (min-width:981px){.et_header_style_centered.et_hide_primary_logo #main-header:not(.et-fixed-header) .logo_container,.et_header_style_centered.et_hide_fixed_logo #main-header.et-fixed-header .logo_container{height:11.88px}.et_fixed_nav #page-container .et-fixed-header#top-header{background-color:#ae0a0b!important}.et_fixed_nav #page-container .et-fixed-header#top-header #et-secondary-nav li ul{background-color:#ae0a0b}.et-fixed-header #top-menu li.current-menu-ancestor>a,.et-fixed-header #top-menu li.current-menu-item>a,.et-fixed-header #top-menu li.current_page_item>a{color:#ae0a0b!important}}@media only screen and (min-width:1350px){.et_pb_row{padding:27px 0}.et_pb_section{padding:54px 0}.single.et_pb_pagebuilder_layout.et_full_width_page .et_post_meta_wrapper{padding-top:81px}.et_pb_fullwidth_section{padding:0}}	h1,h2,h3,h4,h5,h6{font-family:'Georgia',Georgia,"Times New Roman",serif}body,input,textarea,select{font-family:'Georgia',Georgia,"Times New Roman",serif}@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');@font-face{font-family:'Press Start 2P';src:url('https://mkt.estrategia.com/public/wp-content/themes/estrategia_gratis/fonts/PressStart2P-Regular.ttf') format('truetype');font-weight:normal;font-style:normal}.et_multi_view_image__loaded{animation:none!important;transition:none!important}body{font-family:'Roboto',sans-serif}h1,h2,h3,h4,h5,h6{font-family:'Roboto',sans-serif}.et_pb_section_0,.et_pb_section_1,.et_pb_section_3,.et_pb_section_4,.et_pb_section_5{z-index:0!important}footer .container{max-width:100%!important;min-width:100%!important}#footer-info{float:none!important;text-align:center!important}#footer-bottom{padding:15px 6px}</style><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><link rel="canonical" href="https://mkt.estrategia.com/oab/oab-44-revisao-final">
+<style id="wpr-lazyload-bg"></style><style id="wpr-lazyload-bg-exclusion"></style>
+<noscript>
+<style id="wpr-lazyload-bg-nostyle">:root{--wpr-bg-2fa66f52-ad15-4a48-8d88-f61f63263b66: url('../../../../../../../../../../../../themes/Divi/includes/builder/styles/images/preloader.gif');}:root{--wpr-bg-4df82da0-8c90-4915-b610-98633bd02424: url('../../../../../../../../../../../../themes/Divi/includes/builder/styles/images/subscribe-loader.gif');}:root{--wpr-bg-c0611984-89bb-44ea-9658-c4a8909b67e4: url('../../../../../../../../wp-includes/js/mediaelement/mejs-controls.svg');}:root{--wpr-bg-f3c92d02-d8aa-42fc-bd5f-b8337aa8fbe5: url('../../../../../../../../wp-includes/js/mediaelement/mejs-controls.svg');}:root{--wpr-bg-c043b951-4bdc-4f10-8222-595503068cd2: url('../../../../../../../../wp-includes/js/mediaelement/mejs-controls.svg');}:root{--wpr-bg-1ddc817f-aa8f-43e6-949a-d72622d7ff35: url('https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/background-fase-revisao-final-oab-44-2.webp');}:root{--wpr-bg-0872cad3-2be0-4502-9508-e33f28026ee1: url('https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/background-professores-oab-colagem-2.webp');}:root{--wpr-bg-55e4a34d-61b5-41d4-8477-89c79d929e8d: url('https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/depoimentos-fase-revisao-final-oab-44-5-scaled.webp');}</style>
+</noscript>
+<script type="application/javascript">const rocket_pairs = [{"selector":".et_pb_preload","style":":root{--wpr-bg-2fa66f52-ad15-4a48-8d88-f61f63263b66: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Divi\/includes\/builder\/styles\/images\/preloader.gif');}","hash":"2fa66f52-ad15-4a48-8d88-f61f63263b66"},{"selector":".et_subscribe_loader","style":":root{--wpr-bg-4df82da0-8c90-4915-b610-98633bd02424: url('..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/..\/themes\/Divi\/includes\/builder\/styles\/images\/subscribe-loader.gif');}","hash":"4df82da0-8c90-4915-b610-98633bd02424"},{"selector":".mejs-overlay-button","style":":root{--wpr-bg-c0611984-89bb-44ea-9658-c4a8909b67e4: url('..\/..\/..\/..\/..\/..\/..\/..\/wp-includes\/js\/mediaelement\/mejs-controls.svg');}","hash":"c0611984-89bb-44ea-9658-c4a8909b67e4"},{"selector":".mejs-overlay-loading-bg-img","style":":root{--wpr-bg-f3c92d02-d8aa-42fc-bd5f-b8337aa8fbe5: url('..\/..\/..\/..\/..\/..\/..\/..\/wp-includes\/js\/mediaelement\/mejs-controls.svg');}","hash":"f3c92d02-d8aa-42fc-bd5f-b8337aa8fbe5"},{"selector":".mejs-button>button","style":":root{--wpr-bg-c043b951-4bdc-4f10-8222-595503068cd2: url('..\/..\/..\/..\/..\/..\/..\/..\/wp-includes\/js\/mediaelement\/mejs-controls.svg');}","hash":"c043b951-4bdc-4f10-8222-595503068cd2"},{"selector":"div.et_pb_section.et_pb_section_0","style":":root{--wpr-bg-1ddc817f-aa8f-43e6-949a-d72622d7ff35: url('https:\/\/mkt.estrategia.com\/oab\/wp-content\/uploads\/sites\/5\/2025\/07\/background-fase-revisao-final-oab-44-2.webp');}","hash":"1ddc817f-aa8f-43e6-949a-d72622d7ff35"},{"selector":"div.et_pb_section.et_pb_section_4","style":":root{--wpr-bg-0872cad3-2be0-4502-9508-e33f28026ee1: url('https:\/\/mkt.estrategia.com\/oab\/wp-content\/uploads\/sites\/5\/2025\/07\/background-professores-oab-colagem-2.webp');}","hash":"0872cad3-2be0-4502-9508-e33f28026ee1"},{"selector":"div.et_pb_section.et_pb_section_5","style":":root{--wpr-bg-55e4a34d-61b5-41d4-8477-89c79d929e8d: url('https:\/\/mkt.estrategia.com\/oab\/wp-content\/uploads\/sites\/5\/2025\/07\/depoimentos-fase-revisao-final-oab-44-5-scaled.webp');}","hash":"55e4a34d-61b5-41d4-8477-89c79d929e8d"}]; const rocket_excluded_pairs = [];</script></head>
+
+<body class="wp-singular page-template-default page page-id-227118 wp-theme-Divi wp-child-theme-estrategia_gratis et_pb_button_helper_class et_non_fixed_nav et_show_nav et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_header_style_left et_pb_footer_columns4 et_cover_background et_pb_gutter osx et_pb_gutters3 et_pb_pagebuilder_layout et_no_sidebar et_divi_theme et-db">
+	<div id="page-container">
+
+	
+	
+			<header id="main-header" data-height-onload="66">
+			<div class="container clearfix et_menu_container">
+							<div class="logo_container">
+					<span class="logo_helper"></span>
+					<a href="https://mkt.estrategia.com/oab/">
+						<img src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2024/05/logo-estrategia-oab.webp" width="93" height="43" alt="Estratégia OAB" id="logo" data-height-percentage="54" />
+					</a>
+				</div>
+						</div> <!-- .container -->
+					</header> <!-- #main-header -->
+			<div id="et-main-area">
+	
+<div id="main-content">
+
+
+			
+				<article id="post-227118" class="post-227118 page type-page status-publish hentry category-pagina-de-inscricao">
+
+				
+					<div class="entry-content">
+					<div class="et-l et-l--post">
+			<div class="et_builder_inner_content et_pb_gutters3">
+		<div id="revisao-final-oab44" class="et_pb_with_border et_pb_section et_pb_section_0 hero et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_0">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_0  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_0">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img fetchpriority="high" decoding="async" width="580" height="293" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20580%20293'%3E%3C/svg%3E" alt="" title="background MOBILE fase revisao final oab 44-3" data-lazy-srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/background-MOBILE-fase-revisao-final-oab-44-3.webp 580w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/background-MOBILE-fase-revisao-final-oab-44-3-300x152.webp 300w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/background-MOBILE-fase-revisao-final-oab-44-3-480x242.webp 480w" data-lazy-sizes="(max-width: 580px) 100vw, 580px" class="wp-image-227181" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/background-MOBILE-fase-revisao-final-oab-44-3.webp" /><noscript><img fetchpriority="high" decoding="async" width="580" height="293" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/background-MOBILE-fase-revisao-final-oab-44-3.webp" alt="" title="background MOBILE fase revisao final oab 44-3" srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/background-MOBILE-fase-revisao-final-oab-44-3.webp 580w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/background-MOBILE-fase-revisao-final-oab-44-3-300x152.webp 300w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/background-MOBILE-fase-revisao-final-oab-44-3-480x242.webp 480w" sizes="(max-width: 580px) 100vw, 580px" class="wp-image-227181" /></noscript></span>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_1">
+				<div class="et_pb_column et_pb_column_2_3 et_pb_column_1  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_1">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" width="439" height="210" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20439%20210'%3E%3C/svg%3E" alt="" title="1 fase revisao final oab 44" data-lazy-srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1-fase-revisao-final-oab-44.webp 439w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1-fase-revisao-final-oab-44-300x144.webp 300w" data-lazy-sizes="(max-width: 439px) 100vw, 439px" class="wp-image-227131" data-et-multi-view="{&quot;schema&quot;:{&quot;attrs&quot;:{&quot;desktop&quot;:{&quot;src&quot;:&quot;https:\/\/mkt.estrategia.com\/oab\/wp-content\/uploads\/sites\/5\/2025\/07\/1-fase-revisao-final-oab-44.webp&quot;,&quot;alt&quot;:&quot;&quot;,&quot;title&quot;:&quot;1 fase revisao final oab 44&quot;,&quot;class&quot;:&quot;wp-image-227131&quot;,&quot;srcset&quot;:&quot;https:\/\/mkt.estrategia.com\/oab\/wp-content\/uploads\/sites\/5\/2025\/07\/1-fase-revisao-final-oab-44.webp 439w, https:\/\/mkt.estrategia.com\/oab\/wp-content\/uploads\/sites\/5\/2025\/07\/1-fase-revisao-final-oab-44-300x144.webp 300w&quot;,&quot;sizes&quot;:&quot;(max-width: 439px) 100vw, 439px&quot;},&quot;tablet&quot;:{&quot;src&quot;:&quot;https:\/\/mkt.estrategia.com\/militares\/wp-content\/uploads\/sites\/7\/2025\/07\/LOGO-DESK-SPRINT-ESPCEX-25.webp&quot;},&quot;phone&quot;:{&quot;src&quot;:&quot;https:\/\/mkt.estrategia.com\/militares\/wp-content\/uploads\/sites\/7\/2025\/07\/LOGO-MOBILE-SPRINT-ESPCEX-25.webp&quot;}}},&quot;slug&quot;:&quot;et_pb_image&quot;}" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1-fase-revisao-final-oab-44.webp" /><noscript><img decoding="async" width="439" height="210" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1-fase-revisao-final-oab-44.webp" alt="" title="1 fase revisao final oab 44" srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1-fase-revisao-final-oab-44.webp 439w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1-fase-revisao-final-oab-44-300x144.webp 300w" sizes="(max-width: 439px) 100vw, 439px" class="wp-image-227131" data-et-multi-view="{&quot;schema&quot;:{&quot;attrs&quot;:{&quot;desktop&quot;:{&quot;src&quot;:&quot;https:\/\/mkt.estrategia.com\/oab\/wp-content\/uploads\/sites\/5\/2025\/07\/1-fase-revisao-final-oab-44.webp&quot;,&quot;alt&quot;:&quot;&quot;,&quot;title&quot;:&quot;1 fase revisao final oab 44&quot;,&quot;class&quot;:&quot;wp-image-227131&quot;,&quot;srcset&quot;:&quot;https:\/\/mkt.estrategia.com\/oab\/wp-content\/uploads\/sites\/5\/2025\/07\/1-fase-revisao-final-oab-44.webp 439w, https:\/\/mkt.estrategia.com\/oab\/wp-content\/uploads\/sites\/5\/2025\/07\/1-fase-revisao-final-oab-44-300x144.webp 300w&quot;,&quot;sizes&quot;:&quot;(max-width: 439px) 100vw, 439px&quot;},&quot;tablet&quot;:{&quot;src&quot;:&quot;https:\/\/mkt.estrategia.com\/militares\/wp-content\/uploads\/sites\/7\/2025\/07\/LOGO-DESK-SPRINT-ESPCEX-25.webp&quot;},&quot;phone&quot;:{&quot;src&quot;:&quot;https:\/\/mkt.estrategia.com\/militares\/wp-content\/uploads\/sites\/7\/2025\/07\/LOGO-MOBILE-SPRINT-ESPCEX-25.webp&quot;}}},&quot;slug&quot;:&quot;et_pb_image&quot;}" /></noscript></span>
+			</div><div class="et_pb_module et_pb_text et_pb_text_0  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner" data-et-multi-view="{&quot;schema&quot;:{&quot;content&quot;:{&quot;desktop&quot;:&quot;&lt;h2&gt;Tudo o que voc\u00ea precisa&lt;br \/&gt;para ser aprovado, sem&lt;br \/&gt;perder tempo e &lt;span style=\&quot;background: #fff; padding: 0px 2px; color: #760707;\&quot;&gt;de gra\u00e7a&lt;\/span&gt;.&lt;\/h2&gt;&quot;,&quot;tablet&quot;:&quot;&lt;h2&gt;Tudo o que voc\u00ea precisa&lt;br \/&gt;\npara ser aprovado, sem&lt;br \/&gt;\nperder tempo e &lt;span style=\&quot;background: #fff; padding: 0px 2px; color: #760707;\&quot;&gt;de gra\u00e7a.&lt;\/span&gt;&lt;\/h2&gt;&quot;,&quot;phone&quot;:&quot;&lt;h2&gt;Tudo o que voc\u00ea precisa&lt;br \/&gt;\npara ser aprovado, sem&lt;br \/&gt;\nperder tempo e &lt;span style=\&quot;background: #760707; padding: 0px 2px; color: #ffffff;\&quot;&gt;de gra\u00e7a.&lt;\/span&gt;&lt;\/h2&gt;&quot;}},&quot;slug&quot;:&quot;et_pb_text&quot;}" data-et-multi-view-load-tablet-hidden="true" data-et-multi-view-load-phone-hidden="true"><h2>Tudo o que você precisa<br />para ser aprovado, sem<br />perder tempo e <span style="background: #fff; padding: 0px 2px; color: #760707;">de graça</span>.</h2></div>
+			</div><div class="et_pb_module et_pb_text et_pb_text_1  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner" data-et-multi-view="{&quot;schema&quot;:{&quot;content&quot;:{&quot;desktop&quot;:&quot;&lt;h2&gt;No \u00faltimo Exame, nosso time adivinhou&lt;br \/&gt;&lt;span style=\&quot;color: #ffffff;\&quot;&gt;&lt;strong&gt;mais de 68% das quest\u00f5es&lt;\/strong&gt;&lt;\/span&gt; que a FGV cobrou.&lt;br \/&gt;Dessa vez, queremos mais!&lt;\/h2&gt;&quot;,&quot;tablet&quot;:&quot;&lt;h2&gt;N\u00e3o \u00faltimo Exame, nosso time adivinhou&lt;br \/&gt;\n&lt;span style=\&quot;color: #ffffff;\&quot;&gt;&lt;strong&gt;mais de 68% das quest\u00f5es&lt;\/strong&gt;&lt;\/span&gt; que a FGV cobrou.&lt;br \/&gt;\nDessa vez, queremos mais!&lt;\/h2&gt;&quot;,&quot;phone&quot;:&quot;&lt;h2&gt;No \u00faltimo Exame, nosso time adivinhou &lt;span style=\&quot;color: #ffffff;\&quot;&gt;&lt;strong&gt;mais de 68% das quest\u00f5es&lt;\/strong&gt;&lt;\/span&gt; que a FGV cobrou.&lt;br \/&gt;Dessa vez, queremos mais!&lt;\/h2&gt;&quot;}},&quot;slug&quot;:&quot;et_pb_text&quot;}" data-et-multi-view-load-tablet-hidden="true" data-et-multi-view-load-phone-hidden="true"><h2>No último Exame, nosso time adivinhou<br /><span style="color: #ffffff;"><strong>mais de 68% das questões</strong></span> que a FGV cobrou.<br />Dessa vez, queremos mais!</h2></div>
+			</div><div class="et_pb_module et_pb_text et_pb_text_2  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner" data-et-multi-view="{&quot;schema&quot;:{&quot;content&quot;:{&quot;desktop&quot;:&quot;&lt;h2&gt;Para quem est\u00e1 come\u00e7ando ou quer revisar.&lt;br \/&gt;Anote a\u00ed: &lt;span style=\&quot;color: #ffffff;\&quot;&gt;&lt;strong&gt;de 03 a 17 de agosto.&lt;\/strong&gt;&lt;\/span&gt;&lt;\/h2&gt;&quot;,&quot;tablet&quot;:&quot;&lt;h2&gt;Para quem est\u00e1 come\u00e7ando ou quer revisar.&lt;br \/&gt;\nAnote a\u00ed: &lt;span style=\&quot;color: #ffffff;\&quot;&gt;&lt;strong&gt;de 03 a 17 de agosto.&lt;\/strong&gt;&lt;\/span&gt;&lt;\/h2&gt;&quot;,&quot;phone&quot;:&quot;&lt;h2&gt;Para quem est\u00e1 come\u00e7ando ou quer revisar. Anote a\u00ed: &lt;span style=\&quot;color: #ffffff;\&quot;&gt;&lt;strong&gt;de 03 a 17 de agosto.&lt;\/strong&gt;&lt;\/span&gt;&lt;\/h2&gt;&quot;}},&quot;slug&quot;:&quot;et_pb_text&quot;}" data-et-multi-view-load-tablet-hidden="true" data-et-multi-view-load-phone-hidden="true"><h2>Para quem está começando ou quer revisar.<br />Anote aí: <span style="color: #ffffff;"><strong>de 03 a 17 de agosto.</strong></span></h2></div>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_3 et_pb_column_2  et_pb_css_mix_blend_mode_passthrough et-last-child et_pb_column_empty">
+				
+				
+				
+				
+				
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_2">
+				<div class="et_pb_column et_pb_column_1_2 et_pb_column_3  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module formulario_estrategia formulario_estrategia_0">
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_module_inner">
+					<div class="et_pb_module formulario_estrategia formulario_estrategia_0">
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_module_inner">
+					            <div id="forms">
+  	<form class="needs-validation" id="forms_layout" novalidate>
+    	<!-- Inputs para Definir Área, Concurso, Evento e do próprio Formulário. NÃO RETIRAR E TOMAR CUIDADO AO ALTERAR! -->
+		<div class="inputs_no_display_forms">
+			<input type="hidden" id="retURL" name="retURL" value="https://mkt.estrategia.com/oab/oab-44-revisao-final/?utm_source=instagram.com&utm_medium=bio&utm_id=oab-oab1fase-ld-igb-1oab44-semesp-030825&fbclid=PAZXh0bgNhZW0CMTEAAafHLWP5XG-uW9Qx0RXOvWu_7VC3h9McQlg9eLiAeIngqnHO6FV6R6FAR5GKrw_aem_HE_IQpGRgD9H5GjE-_tlIQ" />
+			<input type="hidden" id="Cidade_OrigemIP__c" maxlength="200" name="Cidade_OrigemIP__c" size="20" type="text" />
+			<input type="hidden" id="Estado_OrigemIP__c" maxlength="200" name="Estado_OrigemIP__c" size="20" type="text" />
+			<input type="hidden" id="sucesso" name="sucesso" value="https://mkt.estrategia.com/oab/sucesso-oab-44-revisao-final/" />
+			<input type="hidden" id="nomeDE" name="nomeDE" value="Leads_2020" />
+			<input type="hidden" id="nomeDE2" name="nomeDE2" value="OAB_Area" />
+			<input type="hidden" id="welcome" name="welcome" value="1FO44RF_01" />
+			<input type="hidden" id="dev_zapp" name="dev_zapp" value="off" />
+			<input type="hidden" id="Area_de_Interesse__c" name="Area_de_Interesse__c" value="OAB_Area" />
+			<input type="hidden" id="lead_source" name="lead_source"  value="Geral" />
+			<input type="hidden" id="Modo_de_entrada__c" name="Modo_de_entrada__c"  value="landing-page" />
+			<input type="hidden" id="Interesse_Evento__c" name="Interesse_Evento__c"  value="" />
+		</div>
+        <div class="form-group">
+            <div class="input-group first_name labels">
+              	<div class="input-group-prepend">
+                	<span class="input-group-text"><i class="fas fa-user"></i></span>
+              	</div>
+              	<input type="text" class="form-control input_labels" name="first_name" id="first_name" placeholder="NOME" pattern="[a-zA-Záãâéêíîóôõúç\s]+$" required />
+              	<div class="invalid-feedback">
+	                Nome obrigatório.
+	              </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group email labels">
+              	<div class="input-group-prepend">
+                	<span class="input-group-text"><i class="fas fa-envelope"></i></span>
+              	</div>
+              	<input type="email" class="form-control input_labels" name="email" id="email" placeholder="EMAIL" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$" required />
+                <div class="invalid-feedback">
+                    Email obrigatório.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group phone labels">
+              	<div class="input-group-prepend">
+                	<span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
+              	</div>
+               <input type="text" class="form-control input_labels" id="phone" maxlength="15" name="phone" placeholder="TELEFONE" />
+            </div>
+		    </div>
+	    <div class="connect_icon py-1">
+	        <button style="background:#760707" type="submit" class="btn btn-custom">
+	            <span style="color:#FFFFFF" id="lblBotao">
+					Inscreva-se Gratuitamente				</span>
+	            <div style="background:#3f0000" class="send__icon">
+	                <i style="color:#3f0000; background:#FFFFFF" class="fa fa-chevron-right" aria-hidden="true"></i>
+	            </div>
+	        </button>
+	    </div>
+        <div class="form-check mt-3">
+            <input class="form-check-input" type="checkbox" id="check-custom" checked />
+                <label class="form-check-label" for="check-custom">
+								Ao clicar no botão, você concorda com nossos <a class="politics_privacy_ahref" href="https://www.estrategiaconcursos.com.br/pagina/termos-de-uso/" target="_blank" rel="noopener noreferrer">Termos de Uso</a> e <a class="politics_privacy_ahref" href="https://gratis.estrategiaconcursos.com.br/politica-de-privacidade/" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>, incluindo o uso de cookies e o envio de comunicações.
+            </label>
+        </div>
+  	</form><!-- /forms_layout -->
+</div><!-- /forms -->            
+				</div>
+			</div>
+				</div>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_2 et_pb_column_4  et_pb_css_mix_blend_mode_passthrough et-last-child et_pb_column_empty">
+				
+				
+				
+				
+				
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_1 et_section_regular" >
+				
+				
+				
+				<span class="et_pb_background_pattern"></span>
+				
+				
+				<div class="et_pb_row et_pb_row_3 et_pb_equal_columns et_pb_gutters1">
+				<div class="et_pb_column et_pb_column_1_5 et_pb_column_5  et_pb_css_mix_blend_mode_passthrough et_pb_column_empty">
+				
+				
+				
+				
+				
+			</div><div class="et_pb_column et_pb_column_3_5 et_pb_column_6  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_3  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Vamos além de simples aulas, para conteúdo <span style="color: #e6daa4;">dinâmico </span>e <span style="color: #e6daa4;">direcionado </span>ao que realmente cai!</h2></div>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_5 et_pb_column_7  et_pb_css_mix_blend_mode_passthrough et-last-child et_pb_column_empty">
+				
+				
+				
+				
+				
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_with_border et_pb_row et_pb_row_4 et_pb_equal_columns et_pb_gutters2">
+				<div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_8  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_0  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone et-pb-icon"></span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>REVISÃO FINAL </span></h4>
+						<div class="et_pb_blurb_description"><p>O professor vai destrancar <strong>dicas quentes</strong> com <strong>altas chances de estarem na sua prova</strong>, com exemplos reais que já caíram na prova &#8211; das 20 disciplinas!</p></div>
+					</div>
+				</div>
+			</div>
+			</div><div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_9  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_1  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone et-pb-icon"></span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>GAMESHOW</span></h4>
+						<div class="et_pb_blurb_description"><p>Uma série de quizzes das principais disciplinas, em que você <strong>aprende</strong>, se <strong>diverte</strong> e <strong>concorre a prêmios!</strong></p></div>
+					</div>
+				</div>
+			</div>
+			</div><div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_10  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_blurb et_pb_blurb_2  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_blurb_content">
+					<div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone et-pb-icon"></span></span></div>
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>SALAS SECRETAS</span></h4>
+						<div class="et_pb_blurb_description"><p>Vamos disponibilizar os links <strong>apenas para quem estiver no nosso canal exclusivo</strong> para:<br />acompanhamento com psicanalista, resolução de questões e organização dos estudos.</p></div>
+					</div>
+				</div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_5">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_11  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_2">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" title="layer detalhe novo" data-lazy-src="https://mkt.estrategia.com/med/wp-content/uploads/sites/6/2025/07/layer-detalhe-novo.webp" /><noscript><img decoding="async" src="https://mkt.estrategia.com/med/wp-content/uploads/sites/6/2025/07/layer-detalhe-novo.webp" alt="" title="layer detalhe novo" /></noscript></span>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_2 et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_6">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_12  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_4  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Você tem pressa<span style="color: #e6daa4;"> e nós também</span>!</h2></div>
+			</div><div class="et_pb_module et_pb_text et_pb_text_5  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Foi tudo pensado para quem tem a rotina corrida e não pode perder tempo.</h2></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_7 et_pb_equal_columns et_pb_gutters2">
+				<div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_13  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_3">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" width="370" height="208" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20208'%3E%3C/svg%3E" alt="" title="1ª-FASE-OAB-43-_-Revisão-Final-Ética_1_1" data-lazy-srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1a-FASE-OAB-43-_-Revisao-Final-Etica_1_1.webp 370w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1a-FASE-OAB-43-_-Revisao-Final-Etica_1_1-300x169.webp 300w" data-lazy-sizes="(max-width: 370px) 100vw, 370px" class="wp-image-227190" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1a-FASE-OAB-43-_-Revisao-Final-Etica_1_1.webp" /><noscript><img decoding="async" width="370" height="208" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1a-FASE-OAB-43-_-Revisao-Final-Etica_1_1.webp" alt="" title="1ª-FASE-OAB-43-_-Revisão-Final-Ética_1_1" srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1a-FASE-OAB-43-_-Revisao-Final-Etica_1_1.webp 370w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1a-FASE-OAB-43-_-Revisao-Final-Etica_1_1-300x169.webp 300w" sizes="(max-width: 370px) 100vw, 370px" class="wp-image-227190" /></noscript></span>
+			</div><div class="et_pb_module et_pb_blurb et_pb_blurb_3  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_blurb_content">
+					
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>+ de 100h de aulas</span></h4>
+						<div class="et_pb_blurb_description"><p>Mais de <strong>100 horas de aulas ao vivo</strong> sobre os temas que mais caem em todas as disciplinas.</p></div>
+					</div>
+				</div>
+			</div>
+			</div><div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_14  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_4">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" width="370" height="208" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20208'%3E%3C/svg%3E" alt="" title="MATERIAL DE APOIO" data-lazy-srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/MATERIAL-DE-APOIO.webp 370w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/MATERIAL-DE-APOIO-300x169.webp 300w" data-lazy-sizes="(max-width: 370px) 100vw, 370px" class="wp-image-227206" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/MATERIAL-DE-APOIO.webp" /><noscript><img decoding="async" width="370" height="208" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/MATERIAL-DE-APOIO.webp" alt="" title="MATERIAL DE APOIO" srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/MATERIAL-DE-APOIO.webp 370w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/MATERIAL-DE-APOIO-300x169.webp 300w" sizes="(max-width: 370px) 100vw, 370px" class="wp-image-227206" /></noscript></span>
+			</div><div class="et_pb_module et_pb_blurb et_pb_blurb_4  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_blurb_content">
+					
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>Material de Apoio</span></h4>
+						<div class="et_pb_blurb_description"><p>Material de apoio com slides e resumos, além das gravações das aulas em uma página exclusiva.</p></div>
+					</div>
+				</div>
+			</div>
+			</div><div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_15  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_5">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" width="264" height="148" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20264%20148'%3E%3C/svg%3E" alt="" title="SIMULADO QUESTÕEOS CORREÇÃO EM VIDEO" class="wp-image-227208" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/SIMULADO-QUESTOEOS-CORRECAO-EM-VIDEO.webp" /><noscript><img decoding="async" width="264" height="148" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/SIMULADO-QUESTOEOS-CORRECAO-EM-VIDEO.webp" alt="" title="SIMULADO QUESTÕEOS CORREÇÃO EM VIDEO" class="wp-image-227208" /></noscript></span>
+			</div><div class="et_pb_module et_pb_blurb et_pb_blurb_5  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_blurb_content">
+					
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>Treino duro, prova fácil! </span></h4>
+						<div class="et_pb_blurb_description">Simulado com questões inéditas e correção em vídeo.</div>
+					</div>
+				</div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_8 et_pb_equal_columns et_pb_gutters2">
+				<div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_16  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_6">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" width="370" height="208" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20208'%3E%3C/svg%3E" alt="" title="1FASE-OAB43_SalaSecreta_Comocontrolaraansiedadenavsperaeduranteaprova_ok-ezgif.com-gif-to-webp-converter" data-lazy-srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1FASE-OAB43_SalaSecreta_Comocontrolaraansiedadenavsperaeduranteaprova_ok-ezgif.com-gif-to-webp-converter.webp 370w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1FASE-OAB43_SalaSecreta_Comocontrolaraansiedadenavsperaeduranteaprova_ok-ezgif.com-gif-to-webp-converter-300x169.webp 300w" data-lazy-sizes="(max-width: 370px) 100vw, 370px" class="wp-image-227192" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1FASE-OAB43_SalaSecreta_Comocontrolaraansiedadenavsperaeduranteaprova_ok-ezgif.com-gif-to-webp-converter.webp" /><noscript><img decoding="async" width="370" height="208" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1FASE-OAB43_SalaSecreta_Comocontrolaraansiedadenavsperaeduranteaprova_ok-ezgif.com-gif-to-webp-converter.webp" alt="" title="1FASE-OAB43_SalaSecreta_Comocontrolaraansiedadenavsperaeduranteaprova_ok-ezgif.com-gif-to-webp-converter" srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1FASE-OAB43_SalaSecreta_Comocontrolaraansiedadenavsperaeduranteaprova_ok-ezgif.com-gif-to-webp-converter.webp 370w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1FASE-OAB43_SalaSecreta_Comocontrolaraansiedadenavsperaeduranteaprova_ok-ezgif.com-gif-to-webp-converter-300x169.webp 300w" sizes="(max-width: 370px) 100vw, 370px" class="wp-image-227192" /></noscript></span>
+			</div><div class="et_pb_module et_pb_blurb et_pb_blurb_6  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_blurb_content">
+					
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>Inteligência Emocional</span></h4>
+						<div class="et_pb_blurb_description">Controle da ansiedade, técnicas de resolução de questões, memorização e gestão de tempo com profissionais da saúde e especialistas em planejamento de estudos.</div>
+					</div>
+				</div>
+			</div>
+			</div><div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_17  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_7">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" width="264" height="148" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20264%20148'%3E%3C/svg%3E" alt="" title="REVISAO DE VESPERA REMASTERED 2" class="wp-image-227209" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/REVISAO-DE-VESPERA-REMASTERED-2.webp" /><noscript><img decoding="async" width="264" height="148" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/REVISAO-DE-VESPERA-REMASTERED-2.webp" alt="" title="REVISAO DE VESPERA REMASTERED 2" class="wp-image-227209" /></noscript></span>
+			</div><div class="et_pb_module et_pb_blurb et_pb_blurb_7  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_blurb_content">
+					
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>Revisão de Véspera</span></h4>
+						<div class="et_pb_blurb_description"><p>Mais de 10 horas de aulas ao vivo para garantir aqueles pontos que farão a diferença na prova.</p></div>
+					</div>
+				</div>
+			</div>
+			</div><div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_18  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_image et_pb_image_8">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" width="254" height="142" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20254%20142'%3E%3C/svg%3E" alt="" title="podcast cafe sem etica" class="wp-image-227205" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/podcast-cafe-sem-etica.webp" /><noscript><img decoding="async" width="254" height="142" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/podcast-cafe-sem-etica.webp" alt="" title="podcast cafe sem etica" class="wp-image-227205" /></noscript></span>
+			</div><div class="et_pb_module et_pb_blurb et_pb_blurb_8  et_pb_text_align_left  et_pb_blurb_position_top et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_blurb_content">
+					
+					<div class="et_pb_blurb_container">
+						<h4 class="et_pb_module_header"><span>Podcast Café SEM Ética </span></h4>
+						<div class="et_pb_blurb_description">No dia da prova, confira as apostas finais com boas risadas para aliviar a tensão.</div>
+					</div>
+				</div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_9">
+				<div class="et_pb_column et_pb_column_1_3 et_pb_column_19  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_with_border et_pb_module et_pb_image et_pb_image_9">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap has-box-shadow-overlay"><div class="box-shadow-overlay"></div><img decoding="async" width="1280" height="720" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20720'%3E%3C/svg%3E" alt="" title="gif coruja voando" data-lazy-srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando.webp 1280w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-300x169.webp 300w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-1024x576.webp 1024w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-768x432.webp 768w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-1080x608.webp 1080w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-980x551.webp 980w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-480x270.webp 480w" data-lazy-sizes="(max-width: 1280px) 100vw, 1280px" class="wp-image-227201" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando.webp" /><noscript><img decoding="async" width="1280" height="720" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando.webp" alt="" title="gif coruja voando" srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando.webp 1280w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-300x169.webp 300w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-1024x576.webp 1024w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-768x432.webp 768w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-1080x608.webp 1080w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-980x551.webp 980w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/gif-coruja-voando-480x270.webp 480w" sizes="(max-width: 1280px) 100vw, 1280px" class="wp-image-227201" /></noscript></span>
+			</div>
+			</div><div class="et_pb_column et_pb_column_2_3 et_pb_column_20  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_6  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2>E fique ligado!</h2></div>
+			</div><div class="et_pb_module et_pb_text et_pb_text_7  et_pb_text_align_left et_pb_text_align_center-tablet et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner" data-et-multi-view="{&quot;schema&quot;:{&quot;content&quot;:{&quot;desktop&quot;:&quot;&lt;p&gt;Durante as transmiss\u00f5es, a nossa &lt;strong&gt;Corujita vai voar na sua tela&lt;br \/&gt;&lt;\/strong&gt;com &lt;strong&gt;&lt;span style=\&quot;background: #E6DAA4; padding: 1px 5px; color: #760707;\&quot;&gt;MENSAGENS SECRETAS&lt;\/span&gt;&lt;\/strong&gt;. Ser\u00e1&lt;strong&gt; uma por dia&lt;\/strong&gt;.&lt;br \/&gt;Junte todas as palavras e, ao final da revis\u00e3o final,&lt;br \/&gt;envie para n\u00f3s. Quem fechar tudo vai concorrer aos nossos&lt;br \/&gt;Vade-M\u00e9cuns de 2\u00aa fase + kit da Coruja!&lt;\/p&gt;&quot;,&quot;tablet&quot;:&quot;Durante as transmiss\u00f5es, a nossa &lt;strong&gt;Corujita vai voar na sua tela&lt;br \/&gt;\n&lt;\/strong&gt;com &lt;strong&gt;&lt;span style=\&quot;background: #E6DAA4; padding: 1px 5px; color: #760707;\&quot;&gt;MENSAGENS SECRETAS.&lt;\/span&gt;&lt;\/strong&gt; Ser\u00e1&lt;strong&gt; uma por dia&lt;\/strong&gt;.&lt;br \/&gt;\nJunte todas as palavras e, ao final da revis\u00e3o final,&lt;br \/&gt;\nenvie para n\u00f3s. Quem fechar tudo vai concorrer aos nossos&lt;br \/&gt;\nvade-m\u00e9cuns de 2\u00aa fase + kit da Coruja!&quot;,&quot;phone&quot;:&quot;&lt;p&gt;Durante as transmiss\u00f5es, a nossa &lt;strong&gt;Corujita vai voar na sua tela &lt;\/strong&gt;com &lt;strong&gt;&lt;span style=\&quot;background: #E6DAA4; padding: 1px 5px; color: #760707;\&quot;&gt;MENSAGENS SECRETAS&lt;\/span&gt;&lt;\/strong&gt;. Ser\u00e1&lt;strong&gt; uma por dia&lt;\/strong&gt;.&lt;br \/&gt;Junte todas as palavras e, ao final da revis\u00e3o final, envie para n\u00f3s. Quem fechar tudo vai concorrer aos nossos Vade-M\u00e9cuns de 2\u00aa fase + kit da Coruja!&lt;\/p&gt;&quot;}},&quot;slug&quot;:&quot;et_pb_text&quot;}" data-et-multi-view-load-tablet-hidden="true" data-et-multi-view-load-phone-hidden="true"><p>Durante as transmissões, a nossa <strong>Corujita vai voar na sua tela<br /></strong>com <strong><span style="background: #E6DAA4; padding: 1px 5px; color: #760707;">MENSAGENS SECRETAS</span></strong>. Será<strong> uma por dia</strong>.<br />Junte todas as palavras e, ao final da revisão final,<br />envie para nós. Quem fechar tudo vai concorrer aos nossos<br />Vade-Mécuns de 2ª fase + kit da Coruja!</p></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_10">
+				<div class="et_pb_column et_pb_column_1_5 et_pb_column_21  et_pb_css_mix_blend_mode_passthrough et_pb_column_empty">
+				
+				
+				
+				
+				
+			</div><div class="et_pb_column et_pb_column_3_5 et_pb_column_22  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_button_module_wrapper et_pb_button_0_wrapper et_pb_button_alignment_center et_pb_button_alignment_tablet_left et_pb_button_alignment_phone_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_0 et_pb_bg_layout_light" href="#revisao-final-oab44">Participe Gratuitamente</a>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_5 et_pb_column_23  et_pb_css_mix_blend_mode_passthrough et-last-child et_pb_column_empty">
+				
+				
+				
+				
+				
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_3 et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_11">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_24  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_8  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Toda revisão <span style="color: #e6daa4;">é a mesma coisa!</span></h2></div>
+			</div><div class="et_pb_module et_pb_text et_pb_text_9  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Parece adivinhação, mas é Estratégia.<br />Em segundos, nossos professores conseguem prever a questão da prova.</h2></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_12 et_pb_equal_columns et_pb_gutters2">
+				<div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_25  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_10  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Parecia uma brincadeira,<strong> mas foi sério!</strong> Heloísa Tondinelli, nossa Mentora, e Rodrigo Martins, nosso Professor de Tributário,<strong> matando a questão da prova em cheio</strong>!</h2></div>
+			</div><div class="et_pb_module et_pb_video et_pb_video_0">
+				
+				
+				
+				
+				<div class="et_pb_video_box">
+				<video controls>
+					<source type="video/mp4" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/oab-43-heloisa-adivinhou.mp4" />
+					
+				</video></div>
+				
+			</div>
+			</div><div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_26  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_11  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">E, em Constitucional, o Professor Diego Cerqueira continua passando o que precisa <strong>em poucos segundos!</strong></h2></div>
+			</div><div class="et_pb_module et_pb_video et_pb_video_1">
+				
+				
+				
+				
+				<div class="et_pb_video_box">
+				<video controls>
+					<source type="video/mp4" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1a-FASE-OAB-43-_-Questao-Certa-Direito-Constitucional.mp4" />
+					
+				</video></div>
+				
+			</div><div class="et_pb_module et_pb_image et_pb_image_10">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" width="316" height="395" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20316%20395'%3E%3C/svg%3E" alt="" title="questão constitucional" data-lazy-srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questao-constitucional.webp 316w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questao-constitucional-240x300.webp 240w" data-lazy-sizes="(max-width: 316px) 100vw, 316px" class="wp-image-227198" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questao-constitucional.webp" /><noscript><img decoding="async" width="316" height="395" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questao-constitucional.webp" alt="" title="questão constitucional" srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questao-constitucional.webp 316w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questao-constitucional-240x300.webp 240w" sizes="(max-width: 316px) 100vw, 316px" class="wp-image-227198" /></noscript></span>
+			</div>
+			</div><div class="et_pb_with_border et_pb_column_1_3 et_pb_column et_pb_column_27  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_12  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner" data-et-multi-view="{&quot;schema&quot;:{&quot;content&quot;:{&quot;desktop&quot;:&quot;&lt;h2 style=\&quot;text-align: center;\&quot;&gt;A Professora Priscila Ferreira&lt;br \/&gt;&lt;strong&gt;previu TODAS as quest\u00f5es de \u00c9tica&lt;br \/&gt;&lt;\/strong&gt;na \u00faltima revis\u00e3o!&lt;\/h2&gt;&quot;,&quot;tablet&quot;:&quot;&lt;h2 style=\&quot;text-align: center;\&quot;&gt;A Prof\u00aa. Priscila Ferreira&lt;br \/&gt;\n&lt;strong&gt;previu TODAS as quest\u00f5es de \u00c9tica&lt;br \/&gt;\n&lt;\/strong&gt;na \u00faltima revis\u00e3o!&lt;\/h2&gt;&quot;,&quot;phone&quot;:&quot;&lt;h2 style=\&quot;text-align: center;\&quot;&gt;A Professora Priscila Ferreira&lt;br \/&gt;&lt;strong&gt;previu TODAS as quest\u00f5es de \u00c9tica &lt;\/strong&gt;na \u00faltima revis\u00e3o!&lt;\/h2&gt;&quot;}},&quot;slug&quot;:&quot;et_pb_text&quot;}" data-et-multi-view-load-tablet-hidden="true" data-et-multi-view-load-phone-hidden="true"><h2 style="text-align: center;">A Professora Priscila Ferreira<br /><strong>previu TODAS as questões de Ética<br /></strong>na última revisão!</h2></div>
+			</div><div class="et_pb_module et_pb_video et_pb_video_2">
+				
+				
+				
+				
+				<div class="et_pb_video_box">
+				<video controls>
+					<source type="video/mp4" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/1a-Fase-OAB-42-_-Revisao-Final-Mega-Aulao-de-Etica-.mp4" />
+					
+				</video></div>
+				
+			</div><div class="et_pb_module et_pb_image et_pb_image_11">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" width="317" height="396" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20317%20396'%3E%3C/svg%3E" alt="" title="questões de etica" data-lazy-srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questoes-de-etica.webp 317w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questoes-de-etica-240x300.webp 240w" data-lazy-sizes="(max-width: 317px) 100vw, 317px" class="wp-image-227199" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questoes-de-etica.webp" /><noscript><img decoding="async" width="317" height="396" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questoes-de-etica.webp" alt="" title="questões de etica" srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questoes-de-etica.webp 317w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/questoes-de-etica-240x300.webp 240w" sizes="(max-width: 317px) 100vw, 317px" class="wp-image-227199" /></noscript></span>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_4 et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_13">
+				<div class="et_pb_column et_pb_column_1_2 et_pb_column_28  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_13  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2>Confie nos professores que previram <span style="color: #e6d69e;"><strong>55 questões da última prova</strong></span> em apenas 15 dias, com pura <span style="color: #e6d69e;"><strong>ESTRATÉGIA!</strong></span></h2></div>
+			</div><div class="et_pb_module et_pb_image et_pb_image_12">
+				
+				
+				
+				
+				<span class="et_pb_image_wrap "><img decoding="async" width="1026" height="750" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201026%20750'%3E%3C/svg%3E" alt="" title="professores oab colagem" data-lazy-srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem.webp 1026w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem-300x219.webp 300w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem-1024x749.webp 1024w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem-768x561.webp 768w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem-980x716.webp 980w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem-480x351.webp 480w" data-lazy-sizes="(max-width: 1026px) 100vw, 1026px" class="wp-image-227157" data-lazy-src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem.webp" /><noscript><img decoding="async" width="1026" height="750" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem.webp" alt="" title="professores oab colagem" srcset="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem.webp 1026w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem-300x219.webp 300w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem-1024x749.webp 1024w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem-768x561.webp 768w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem-980x716.webp 980w, https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/professores-oab-colagem-480x351.webp 480w" sizes="(max-width: 1026px) 100vw, 1026px" class="wp-image-227157" /></noscript></span>
+			</div><div class="et_pb_button_module_wrapper et_pb_button_1_wrapper et_pb_button_alignment_left et_pb_button_alignment_tablet_left et_pb_button_alignment_phone_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_1 et_pb_bg_layout_light" href="#revisao-final-oab44">Participe Gratuitamente</a>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_2 et_pb_column_29  et_pb_css_mix_blend_mode_passthrough et-last-child et_pb_column_empty">
+				
+				
+				
+				
+				
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_5 et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_14">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_30  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_14  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Deu certo para eles <span style="color: #e6daa4;">e pode ser a sua vez agora! 🚀</span></h2></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_6 et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_15">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_31  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				<div class="et_pb_module et_pb_text et_pb_text_15  et_pb_text_align_left et_pb_bg_layout_light">
+				
+				
+				
+				
+				<div class="et_pb_text_inner"><h2 style="text-align: center;">Deu certo para eles <span style="color: #e6daa4;">e pode ser a sua vez agora! 🚀</span></h2></div>
+			</div>
+			</div>
+				
+				
+				
+				
+			</div><div class="et_pb_row et_pb_row_16">
+				<div class="et_pb_column et_pb_column_4_4 et_pb_column_32  et_pb_css_mix_blend_mode_passthrough et-last-child">
+				
+				
+				
+				
+				
+                         <style>
+            :root {
+            --bg-card-carrossel-color: transparent;
+            /* --bg-card-color: ; */
+            --text-card-color: ;
+            --border-card-color: #3c3c3c;
+            --accent-border-card-color: #e6d69e;
+            --border-radius-card: 4px;
+            }
+            .imagens h3,
+            .imagens,
+            .imagens h4 {
+            color: var(--text-card-color);
+            }  
+            #imagens .item{
+            /*background: var(--bg-card-color);*/
+            background: var(--bg-card-carrossel-color)!important;
+            border: 1px solid var(--border-card-color)!important;
+            border-radius: var(--border-radius-card)!important;
+            padding: 16px;
+            }
+
+            /* .navigation .prev,
+            .navigation .next {
+                background-color: var(--bg-card-color) ;
+                color: var(--accent-border-card-color) ; 
+            } */
+
+            .slick-dots li button:before {
+                color: #3c3c3c;
+            }
+
+            .slick-prev:before,
+            .slick-next:before {
+            color: var(--accent-border-card-color);
+            }
+
+            .slick-dots li.slick-active button:before {
+            opacity: .75;
+            color: var(--accent-border-card-color);
+            }
+
+            .slick-dots li button:before {
+            color: var(--border-card-color);
+            }
+            </style>
+                                        <div class="carrossel-wrapper">
+                        <div id="imagens" data-columns="3" class="imagens ">
+                                                    <div class="item">
+                            <div class="item-inner">
+                                <div class="content">
+                                    <div class="inner">
+                                        <div class="image">
+                                            <div class="image-inner">
+                                                <div class="img img-responsive responsive-1by1">
+                                                    <img decoding="async" width="695" height="94" class="skip-lazy attr-img" alt="" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/DEPOIMENTOS-OAB-44-1.webp" loading="lazy" />
+                                                </div>
+                                            </div>
+                                            <div class="text">
+                                                <h4 class="title-lp"></h4>
+                                                <h3 class="subtitle-lp"></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="item">
+                            <div class="item-inner">
+                                <div class="content">
+                                    <div class="inner">
+                                        <div class="image">
+                                            <div class="image-inner">
+                                                <div class="img img-responsive responsive-1by1">
+                                                    <img decoding="async" width="410" height="88" class="skip-lazy attr-img" alt="" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/DEPOIMENTOS-OAB-44-2.webp" loading="lazy" />
+                                                </div>
+                                            </div>
+                                            <div class="text">
+                                                <h4 class="title-lp"></h4>
+                                                <h3 class="subtitle-lp"></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="item">
+                            <div class="item-inner">
+                                <div class="content">
+                                    <div class="inner">
+                                        <div class="image">
+                                            <div class="image-inner">
+                                                <div class="img img-responsive responsive-1by1">
+                                                    <img decoding="async" width="385" height="82" class="skip-lazy attr-img" alt="" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/DEPOIMENTOS-OAB-44-5.webp" loading="lazy" />
+                                                </div>
+                                            </div>
+                                            <div class="text">
+                                                <h4 class="title-lp"></h4>
+                                                <h3 class="subtitle-lp"></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="item">
+                            <div class="item-inner">
+                                <div class="content">
+                                    <div class="inner">
+                                        <div class="image">
+                                            <div class="image-inner">
+                                                <div class="img img-responsive responsive-1by1">
+                                                    <img decoding="async" width="686" height="75" class="skip-lazy attr-img" alt="" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/DEPOIMENTOS-OAB-44-4.webp" loading="lazy" />
+                                                </div>
+                                            </div>
+                                            <div class="text">
+                                                <h4 class="title-lp"></h4>
+                                                <h3 class="subtitle-lp"></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                                <div class="item">
+                            <div class="item-inner">
+                                <div class="content">
+                                    <div class="inner">
+                                        <div class="image">
+                                            <div class="image-inner">
+                                                <div class="img img-responsive responsive-1by1">
+                                                    <img decoding="async" width="950" height="82" class="skip-lazy attr-img" alt="" src="https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/2025/07/DEPOIMENTOS-OAB-44-3.webp" loading="lazy" />
+                                                </div>
+                                            </div>
+                                            <div class="text">
+                                                <h4 class="title-lp"></h4>
+                                                <h3 class="subtitle-lp"></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                                </div>
+                    </div>
+                    
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div><div class="et_pb_section et_pb_section_7 et_pb_with_background et_section_regular" >
+				
+				
+				
+				
+				
+				
+				<div class="et_pb_row et_pb_row_17">
+				<div class="et_pb_column et_pb_column_1_5 et_pb_column_33  et_pb_css_mix_blend_mode_passthrough et_pb_column_empty">
+				
+				
+				
+				
+				
+			</div><div class="et_pb_column et_pb_column_3_5 et_pb_column_34  et_pb_css_mix_blend_mode_passthrough">
+				
+				
+				
+				
+				<div class="et_pb_button_module_wrapper et_pb_button_2_wrapper et_pb_button_alignment_center et_pb_button_alignment_tablet_left et_pb_button_alignment_phone_center et_pb_module ">
+				<a class="et_pb_button et_pb_button_2 et_pb_bg_layout_light" href="#revisao-final-oab44">Participe Gratuitamente</a>
+			</div>
+			</div><div class="et_pb_column et_pb_column_1_5 et_pb_column_35  et_pb_css_mix_blend_mode_passthrough et-last-child et_pb_column_empty">
+				
+				
+				
+				
+				
+			</div>
+				
+				
+				
+				
+			</div>
+				
+				
+			</div>		</div>
+	</div>
+						</div> <!-- .entry-content -->
+
+				
+				</article> <!-- .et_pb_post -->
+
+			
+
+</div> <!-- #main-content -->
+
+
+			<footer id="main-footer">
+				
+
+		
+				<div id="footer-bottom">
+					<div class="container clearfix">
+				<div id="footer-info">©2025 - Estratégia OAB - Material Gratuito para Concursos. Todos os direitos reservados CNPJ: 13.877.842/0001-78 - <a href="gratis/politica-de-privacidade">Política de Privacidade</a></div>					</div>
+				</div>
+			</footer>
+		</div>
+
+
+	</div>
+
+	<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/oab\/*"},{"not":{"href_matches":["\/oab\/wp-*.php","\/oab\/wp-admin\/*","\/oab\/wp-content\/uploads\/sites\/5\/*","\/oab\/wp-content\/*","\/oab\/wp-content\/plugins\/*","\/oab\/wp-content\/themes\/estrategia_gratis\/*","\/oab\/wp-content\/themes\/Divi\/*","\/oab\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+    <script type="rocketlazyloadscript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var index = window.location.href.indexOf('?');
+            if (index != -1) {
+                var querystring = window.location.href.slice(index + 1);
+
+                // Função para verificar se a URL pertence ao domínio 'estrategia.com', incluindo subdomínios e subdiretórios
+                function isEstrategiaUrl(url) {
+                    var pattern = /^https?:\/\/(?:[^\/]+\.)?estrategia\.com(\/|$)/;
+                    return pattern.test(url);
+                }
+
+                // Atualizar todos os links com as classes específicas
+                var specificLinks = document.querySelectorAll('a.product-link.big-button, a.et_pb_button, a.click');
+                specificLinks.forEach(function (element) {
+                    var href = element.getAttribute('href');
+                    if (href && isEstrategiaUrl(href)) {
+                        href += (href.includes('?') ? '&' : '?') + querystring;
+                        element.setAttribute('href', href);
+                    }
+                });
+
+                // Atualizar o link do botão de WhatsApp
+                var whatsappButton = document.querySelector('#whatsapp-floating-button a.whatsapp-content');
+                if (whatsappButton) {
+                    var whatsappHref = whatsappButton.getAttribute('href');
+                    if (whatsappHref && isEstrategiaUrl(whatsappHref)) {
+                        whatsappHref += (whatsappHref.includes('?') ? '&' : '?') + querystring;
+                        whatsappButton.setAttribute('href', whatsappHref);
+                    }
+                }
+            }
+        });
+    </script>
+        <script type="rocketlazyloadscript">
+      document.addEventListener('DOMContentLoaded', function () {
+        const swappedEls = document.querySelectorAll('.et_pb_text_inner.et_multi_view_swapped');
+        swappedEls.forEach(function(el) {
+          el.classList.remove('et_multi_view_swapped');
+          el.style.opacity = '1';
+          el.style.transition = 'none';
+          el.style.transform = 'none';
+          el.style.visibility = 'visible';
+        });
+      });
+    </script>
+        <script type="rocketlazyloadscript">
+    window.addEventListener('load', function () {
+        var diviCSS = document.querySelector('link[href*="et-cache"]');
+        if (diviCSS) {
+            fetch(diviCSS.href).then(function (res) {
+                if (!res.ok) {
+                    var request = new XMLHttpRequest();
+                    request.open('GET', '/wp-admin/admin-ajax.php?action=divi_css_inline_fallback', true);
+                    request.onreadystatechange = function () {
+                        if (request.readyState === 4 && request.status === 200) {
+                            var style = document.createElement('style');
+                            style.innerHTML = request.responseText;
+                            document.head.appendChild(style);
+                        }
+                    };
+                    request.send();
+                }
+            });
+        }
+    });
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKT388L" height="0" width="0" style="display:none;visibility:hidden" loading="lazy"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><link rel='stylesheet' id='bootstrap-css-css' href='https://mkt.estrategia.com/oab/wp-content/plugins/formulario_estrategia//assets/bootstrap/css/bootstrap.min.css?ver=6.8.1' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='bootstrap-sweetalert-css-css' href='https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/plugins/formulario_estrategia/assets/bootstrap-sweetalert/css/sweetalert.css?ver=1752157133' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='formulario-estrategia-css-css' href='https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/plugins/formulario_estrategia/assets/css/form-estrategia.css?ver=1752157133' type='text/css' media='all' />
+<link rel='stylesheet' id='mediaelement-css' href='https://mkt.estrategia.com/oab/wp-content/cache/background-css/mkt.estrategia.com/oab/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17&wpr_t=1752589202' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='https://mkt.estrategia.com/oab/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.8.1' type='text/css' media='all' />
+<link data-minify="1" rel='stylesheet' id='teachers-css-css' href='https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/plugins/estrategia_carrossel/assets/css/estrategia_carrossel.css?ver=1752156715' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css' href='https://mkt.estrategia.com/oab/wp-includes/css/dist/block-library/style.min.css?ver=6.8.1' type='text/css' media='none' onload="media='all'" />
+<script type="text/javascript" id="dynamic-images-script-js-extra">
+/* <![CDATA[ */
+var dynamicImagesData = {"ajaxurl":"https:\/\/mkt.estrategia.com\/oab\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/plugins/dynamic-images/assets/js/dynamic-images.js?ver=1752156715" id="dynamic-images-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer data-cfasync="false" async data-rocket-src="https://mkt.estrategia.com/oab/wp-content/cache/min/5/k4y6pvm7.js?ver=1752156715" id="gsc_widget_script-js"></script>
+<script type="text/javascript" id="rocket_lazyload_css-js-extra">
+/* <![CDATA[ */
+var rocket_lazyload_css_data = {"threshold":"300"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="rocket_lazyload_css-js-after">
+/* <![CDATA[ */
+!function o(n,c,a){function s(t,e){if(!c[t]){if(!n[t]){var r="function"==typeof require&&require;if(!e&&r)return r(t,!0);if(u)return u(t,!0);throw(r=new Error("Cannot find module '"+t+"'")).code="MODULE_NOT_FOUND",r}r=c[t]={exports:{}},n[t][0].call(r.exports,function(e){return s(n[t][1][e]||e)},r,r.exports,o,n,c,a)}return c[t].exports}for(var u="function"==typeof require&&require,e=0;e<a.length;e++)s(a[e]);return s}({1:[function(e,t,r){"use strict";!function(){const r="undefined"==typeof rocket_pairs?[]:rocket_pairs,e="undefined"==typeof rocket_excluded_pairs?[]:rocket_excluded_pairs;e.map(t=>{var e=t.selector;const r=document.querySelectorAll(e);r.forEach(e=>{e.setAttribute("data-rocket-lazy-bg-".concat(t.hash),"excluded")})});const o=document.querySelector("#wpr-lazyload-bg");var t=rocket_lazyload_css_data.threshold||300;const n=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting){const e=r.filter(e=>t.target.matches(e.selector));e.map(t=>{t&&(o.innerHTML+=t.style,t.elements.forEach(e=>{n.unobserve(e),e.setAttribute("data-rocket-lazy-bg-".concat(t.hash),"loaded")}))})}})},{rootMargin:t+"px"});function c(){0<(0<arguments.length&&void 0!==arguments[0]?arguments[0]:[]).length&&r.forEach(t=>{try{const e=document.querySelectorAll(t.selector);e.forEach(e=>{"loaded"!==e.getAttribute("data-rocket-lazy-bg-".concat(t.hash))&&"excluded"!==e.getAttribute("data-rocket-lazy-bg-".concat(t.hash))&&(n.observe(e),(t.elements||(t.elements=[])).push(e))})}catch(e){console.error(e)}})}c();const a=function(){const o=window.MutationObserver;return function(e,t){if(e&&1===e.nodeType){const r=new o(t);return r.observe(e,{attributes:!0,childList:!0,subtree:!0}),r}}}();t=document.querySelector("body"),a(t,c)}()},{}]},{},[1]);
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/themes/estrategia_gratis/assets/js/fix-calendar.js?ver=1752156715" id="fix-calendar-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/themes/estrategia_gratis/assets/fontawesome/js/all.js?ver=1752156716" id="fontawesome-js"></script>
+<script type="text/javascript" id="divi-custom-script-js-extra">
+/* <![CDATA[ */
+var DIVI = {"item_count":"%d Item","items_count":"%d Items"};
+var et_builder_utils_params = {"condition":{"diviTheme":true,"extraTheme":false},"scrollLocations":["app","top"],"builderScrollLocations":{"desktop":"app","tablet":"app","phone":"app"},"onloadScrollLocation":"app","builderType":"fe"};
+var et_frontend_scripts = {"builderCssContainerPrefix":"#et-boc","builderCssLayoutPrefix":"#et-boc .et-l"};
+var et_pb_custom = {"ajaxurl":"https:\/\/mkt.estrategia.com\/oab\/wp-admin\/admin-ajax.php","images_uri":"https:\/\/mkt.estrategia.com\/oab\/wp-content\/themes\/Divi\/images","builder_images_uri":"https:\/\/mkt.estrategia.com\/oab\/wp-content\/themes\/Divi\/includes\/builder\/images","et_frontend_nonce":"4bc5502a7f","subscription_failed":"Por favor, verifique os campos abaixo para verifique se voc\u00ea digitou as informa\u00e7\u00f5es corretas.","et_ab_log_nonce":"d2f6bb9e10","fill_message":"Por favor, preencha os seguintes campos:","contact_error_message":"Por favor, corrija os seguintes erros:","invalid":"E-mail inv\u00e1lido","captcha":"Captcha","prev":"Anterior","previous":"Anterior","next":"Pr\u00f3ximo","wrong_captcha":"Voc\u00ea digitou o n\u00famero captcha errado.","wrong_checkbox":"Caixa de sele\u00e7\u00e3o","ignore_waypoints":"no","is_divi_theme_used":"1","widget_search_selector":".widget_search","ab_tests":[],"is_ab_testing_active":"","page_id":"227118","unique_test_id":"","ab_bounce_rate":"5","is_cache_plugin_active":"yes","is_shortcode_tracking":"","tinymce_uri":"https:\/\/mkt.estrategia.com\/oab\/wp-content\/themes\/Divi\/includes\/builder\/frontend-builder\/assets\/vendors","accent_color":"#ae0a0b","waypoints_options":[]};
+var et_pb_box_shadow_elements = [];
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/themes/Divi/js/scripts.min.js?ver=4.27.4" id="divi-custom-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/themes/Divi/core/admin/js/common.js?ver=1752156716" id="et-core-common-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/plugins/wp-rocket/assets/js/heartbeat.js?ver=3.15.2" id="heartbeat-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/plugins/formulario_estrategia//assets/fontawesome/js/all.min.js?ver=6.8.1" id="fontawesome-js-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/plugins/formulario_estrategia//assets/bootstrap-sweetalert/js/sweetalert.min.js?ver=6.8.1" id="bootstrap-sweetalert-js-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/plugins/formulario_estrategia//assets/validation/jquery.validate.min.js?ver=6.8.1" id="jquery-validation-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/plugins/formulario_estrategia//assets/masked-input/jquery.maskedinput.min.js?ver=6.8.1" id="masked-input-js"></script>
+<script type="text/javascript" id="formulario-estrategia-js-extra">
+/* <![CDATA[ */
+var ajax = {"url":"https:\/\/mkt.estrategia.com\/oab\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/plugins/formulario_estrategia/assets/js/concursos.js?ver=1752157133" id="formulario-estrategia-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="mediaelement-core-js-before">
+/* <![CDATA[ */
+var mejsL10n = {"language":"pt","strings":{"mejs.download-file":"Fazer download do arquivo","mejs.install-flash":"Voc\u00ea est\u00e1 usando um navegador que n\u00e3o tem Flash ativo ou instalado. Ative o plugin do Flash player ou baixe a \u00faltima vers\u00e3o em https:\/\/get.adobe.com\/flashplayer\/","mejs.fullscreen":"Tela inteira","mejs.play":"Reproduzir","mejs.pause":"Pausar","mejs.time-slider":"Tempo do slider","mejs.time-help-text":"Use as setas esquerda e direita para avan\u00e7ar um segundo. Acima e abaixo para avan\u00e7ar dez segundos.","mejs.live-broadcast":"Transmiss\u00e3o ao vivo","mejs.volume-help-text":"Use as setas para cima ou para baixo para aumentar ou diminuir o volume.","mejs.unmute":"Desativar mudo","mejs.mute":"Mudo","mejs.volume-slider":"Controle de volume","mejs.video-player":"Tocador de v\u00eddeo","mejs.audio-player":"Tocador de \u00e1udio","mejs.captions-subtitles":"Transcri\u00e7\u00f5es\/Legendas","mejs.captions-chapters":"Cap\u00edtulos","mejs.none":"Nenhum","mejs.afrikaans":"Afric\u00e2ner","mejs.albanian":"Alban\u00eas","mejs.arabic":"\u00c1rabe","mejs.belarusian":"Bielorrusso","mejs.bulgarian":"B\u00falgaro","mejs.catalan":"Catal\u00e3o","mejs.chinese":"Chin\u00eas","mejs.chinese-simplified":"Chin\u00eas (simplificado)","mejs.chinese-traditional":"Chin\u00eas (tradicional)","mejs.croatian":"Croata","mejs.czech":"Checo","mejs.danish":"Dinamarqu\u00eas","mejs.dutch":"Holand\u00eas","mejs.english":"Ingl\u00eas","mejs.estonian":"Estoniano","mejs.filipino":"Filipino","mejs.finnish":"Finland\u00eas","mejs.french":"Franc\u00eas","mejs.galician":"Galega","mejs.german":"Alem\u00e3o","mejs.greek":"Grego","mejs.haitian-creole":"Crioulo haitiano","mejs.hebrew":"Hebraico","mejs.hindi":"Hindi","mejs.hungarian":"H\u00fangaro","mejs.icelandic":"Island\u00eas","mejs.indonesian":"Indon\u00e9sio","mejs.irish":"Irland\u00eas","mejs.italian":"Italiano","mejs.japanese":"Japon\u00eas","mejs.korean":"Coreano","mejs.latvian":"Let\u00e3o","mejs.lithuanian":"Lituano","mejs.macedonian":"Maced\u00f4nio","mejs.malay":"Malaio","mejs.maltese":"Malt\u00eas","mejs.norwegian":"Noruegu\u00eas","mejs.persian":"Persa","mejs.polish":"Polon\u00eas","mejs.portuguese":"Portugu\u00eas","mejs.romanian":"Romeno","mejs.russian":"Russo","mejs.serbian":"S\u00e9rvio","mejs.slovak":"Eslovaco","mejs.slovenian":"Esloveno","mejs.spanish":"Espanhol","mejs.swahili":"Sua\u00edli","mejs.swedish":"Sueco","mejs.tagalog":"Tagalo","mejs.thai":"Tailand\u00eas","mejs.turkish":"Turco","mejs.ukrainian":"Ucraniano","mejs.vietnamese":"Vietnamita","mejs.welsh":"Gal\u00eas","mejs.yiddish":"I\u00eddiche"}};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17" id="mediaelement-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.8.1" id="mediaelement-migrate-js"></script>
+<script type="text/javascript" id="mediaelement-js-extra">
+/* <![CDATA[ */
+var _wpmejsSettings = {"pluginPath":"\/oab\/wp-includes\/js\/mediaelement\/","classPrefix":"mejs-","stretching":"responsive","audioShortcodeLibrary":"mediaelement","videoShortcodeLibrary":"mediaelement"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=6.8.1" id="wp-mediaelement-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/plugins/estrategia_carrossel/assets/js/estrategia_carrossel.js?ver=1752156716" id="teachers-js-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript" defer data-rocket-src="https://mkt.estrategia.com/oab/wp-content/cache/min/5/oab/wp-content/themes/Divi/includes/builder/feature/dynamic-assets/assets/js/jquery.fitvids.js?ver=1752157311" id="fitvids-js"></script>
+<style id="et-builder-module-design-227118-cached-inline-styles">@font-face{font-family:"Poppins Bold";font-display:swap;src:url("https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/et-fonts/Poppins-Bold.ttf") format("truetype")}@font-face{font-family:"Poppins Regular";font-display:swap;src:url("https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/et-fonts/Poppins-Regular.ttf") format("truetype")}@font-face{font-family:"Poppins Medium";font-display:swap;src:url("https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/et-fonts/Poppins-Medium.ttf") format("truetype")}@font-face{font-family:"Poppins Light";font-display:swap;src:url("https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/et-fonts/Poppins-Light.ttf") format("truetype")}@font-face{font-family:"Roboto Bold";font-display:swap;src:url("https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/et-fonts/Roboto-Bold.ttf") format("truetype")}</style><style id="et-builder-module-design-deferred-227118-cached-inline-styles">@font-face{font-family:"Poppins Bold";font-display:swap;src:url("https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/et-fonts/Poppins-Bold.ttf") format("truetype")}@font-face{font-family:"Poppins Regular";font-display:swap;src:url("https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/et-fonts/Poppins-Regular.ttf") format("truetype")}@font-face{font-family:"Poppins Medium";font-display:swap;src:url("https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/et-fonts/Poppins-Medium.ttf") format("truetype")}@font-face{font-family:"Poppins Light";font-display:swap;src:url("https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/et-fonts/Poppins-Light.ttf") format("truetype")}@font-face{font-family:"Roboto Bold";font-display:swap;src:url("https://mkt.estrategia.com/oab/wp-content/uploads/sites/5/et-fonts/Roboto-Bold.ttf") format("truetype")}div.et_pb_section.et_pb_section_0{background-position:right 32% center;background-image:var(--wpr-bg-1ddc817f-aa8f-43e6-949a-d72622d7ff35)!important}.et_pb_section_0{border-bottom-width:5px;border-bottom-color:#d2a687}.et_pb_row_0.et_pb_row,.et_pb_row_5.et_pb_row{padding-top:0px!important;padding-bottom:0px!important;margin-top:0px!important;margin-bottom:0px!important;padding-top:0px;padding-bottom:0px}.et_pb_row_0,body #page-container .et-db #et-boc .et-l .et_pb_row_0.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_0.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_0.et_pb_row,.et_pb_image_5 .et_pb_image_wrap,.et_pb_image_5 img,.et_pb_image_7 .et_pb_image_wrap,.et_pb_image_7 img,.et_pb_image_8 .et_pb_image_wrap,.et_pb_image_8 img{width:100%}.et_pb_image_0,.et_pb_image_10,.et_pb_image_12{text-align:center}.et_pb_row_1.et_pb_row,.et_pb_row_6.et_pb_row,.et_pb_row_11.et_pb_row,.et_pb_row_15.et_pb_row,.et_pb_row_16.et_pb_row{padding-bottom:0px!important;padding-bottom:0px}.et_pb_row_1,body #page-container .et-db #et-boc .et-l .et_pb_row_1.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_1.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_1.et_pb_row,.et_pb_row_13,body #page-container .et-db #et-boc .et-l .et_pb_row_13.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_13.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_13.et_pb_row{width:90%}.et_pb_image_1{text-align:left;margin-left:0}.et_pb_text_0.et_pb_text{color:#000000!important}.et_pb_text_0 h2{font-family:'Poppins Bold',Helvetica,Arial,Lucida,sans-serif;font-size:35px;color:#FFFFFF!important;line-height:1.4em;text-align:left}.et_pb_text_0,.et_pb_text_1{padding-bottom:0px!important;margin-bottom:0px!important}.et_pb_text_1 h2{font-family:'Poppins Regular',Helvetica,Arial,Lucida,sans-serif;font-size:20px;color:rgba(255,255,255,0.85)!important;line-height:1.4em;text-align:left}.et_pb_text_2 h2{font-family:'Poppins Regular',Helvetica,Arial,Lucida,sans-serif;font-size:18px;color:rgba(255,255,255,0.85)!important;line-height:1.4em;text-align:left}.et_pb_text_2{padding-bottom:0px!important;margin-bottom:-20px!important}.formulario_estrategia_0{margin-left:-40px}div.et_pb_section.et_pb_section_1{background-image:radial-gradient(ellipse at bottom right,#510000 0%,#bf0101 18%,#760707 57%,#3d0501 92%)!important}div.et_pb_section.et_pb_section_1>.et_pb_background_pattern{background-image:url(data:image/svg+xml;base64,PHN2ZyAgZmlsbD0iIzNkMDUwMSIgaGVpZ2h0PSI5NnB4IiB3aWR0aD0iOTZweCIgdmlld0JveD0iMCAwIDk2IDk2IiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0yMCw0OEg0OEwwLDk2VjY4Wm0wLDBMMCwyOFY0OFpNNDgsMjAuMTUsMjgsMEgwTDQ4LDQ4LDk2LDBINjhabTQ4LDQ4TDc2LDQ4SDQ4TDk2LDk2Wk05Niw0OFYyOEw3Niw0OFpNMjgsOTZINjhMNDgsNzZaIi8+PC9zdmc+);background-size:7px 7px;background-position:center}.et_pb_section_1.et_pb_section{padding-bottom:0px}.et_pb_row_3.et_pb_row{margin-top:3px!important;margin-right:auto!important;margin-left:auto!important}.et_pb_row_3,body #page-container .et-db #et-boc .et-l .et_pb_row_3.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_3.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_3.et_pb_row{width:90%;max-width:1402px}.et_pb_text_3 h1,.et_pb_text_4 h1,.et_pb_text_6 h1,.et_pb_text_8 h1,.et_pb_text_10 h1,.et_pb_text_11 h1,.et_pb_text_12 h1,.et_pb_text_14 h1,.et_pb_text_15 h1{font-family:'Poppins Medium',Helvetica,Arial,Lucida,sans-serif;font-size:35px;color:#FFFFFF!important;line-height:1.3em;text-align:center}.et_pb_text_3 h2,.et_pb_text_4 h2,.et_pb_text_6 h2,.et_pb_text_8 h2,.et_pb_text_14 h2,.et_pb_text_15 h2{font-family:'Poppins Medium',Helvetica,Arial,Lucida,sans-serif;font-size:35px;color:#FFFFFF!important;line-height:1.3em;text-align:left}.et_pb_text_3 h3,.et_pb_text_4 h3,.et_pb_text_6 h3,.et_pb_text_7.et_pb_text,.et_pb_text_8 h3,.et_pb_text_10 h3,.et_pb_text_11 h3,.et_pb_text_12 h3,.et_pb_text_14 h3,.et_pb_text_15 h3{color:#FFFFFF!important}.et_pb_text_3,.et_pb_text_14,.et_pb_text_15{padding-bottom:8px!important;margin-top:-10px!important;margin-bottom:-24px!important}.et_pb_row_4{border-color:rgba(243,220,183,0.75)}.et_pb_row_4.et_pb_row{padding-top:11px!important;padding-bottom:11px!important;margin-top:39px!important;margin-right:auto!important;margin-bottom:71px!important;margin-left:auto!important;padding-top:11px;padding-bottom:11px}.et_pb_row_4,body #page-container .et-db #et-boc .et-l .et_pb_row_4.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_4.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_4.et_pb_row{max-width:1280px}.et_pb_blurb_0.et_pb_blurb .et_pb_module_header,.et_pb_blurb_0.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_1.et_pb_blurb .et_pb_module_header,.et_pb_blurb_1.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_2.et_pb_blurb .et_pb_module_header,.et_pb_blurb_2.et_pb_blurb .et_pb_module_header a{font-family:'Poppins Regular',Helvetica,Arial,Lucida,sans-serif;font-weight:600;font-size:19px;color:#e6daa4!important;line-height:1.3em}.et_pb_blurb_0.et_pb_blurb p,.et_pb_blurb_1.et_pb_blurb p,.et_pb_blurb_2.et_pb_blurb p,.et_pb_blurb_3.et_pb_blurb p,.et_pb_blurb_4.et_pb_blurb p,.et_pb_blurb_5.et_pb_blurb p,.et_pb_blurb_6.et_pb_blurb p,.et_pb_blurb_7.et_pb_blurb p,.et_pb_blurb_8.et_pb_blurb p{line-height:1.4em}.et_pb_blurb_0.et_pb_blurb,.et_pb_blurb_1.et_pb_blurb,.et_pb_blurb_2.et_pb_blurb{font-family:'Poppins Light',Helvetica,Arial,Lucida,sans-serif;font-size:16px;color:#FFFFFF!important;line-height:1.4em}.et_pb_blurb_0 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap,.et_pb_blurb_0 .et_pb_main_blurb_image .et-pb-icon,.et_pb_blurb_1 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap,.et_pb_blurb_1 .et_pb_main_blurb_image .et-pb-icon,.et_pb_blurb_2 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap,.et_pb_blurb_2 .et_pb_main_blurb_image .et-pb-icon{margin-bottom:-10px!important}.et_pb_blurb_0 .et_pb_blurb_content,.et_pb_blurb_1 .et_pb_blurb_content,.et_pb_blurb_2 .et_pb_blurb_content,.et_pb_blurb_3 .et_pb_blurb_content,.et_pb_blurb_4 .et_pb_blurb_content,.et_pb_blurb_5 .et_pb_blurb_content,.et_pb_blurb_6 .et_pb_blurb_content,.et_pb_blurb_7 .et_pb_blurb_content,.et_pb_blurb_8 .et_pb_blurb_content,.et_pb_blurb_3.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_4.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_5.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_6.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_7.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_8.et_pb_blurb .et_pb_blurb_description{text-align:left}.et_pb_blurb_0 .et-pb-icon,.et_pb_blurb_1 .et-pb-icon,.et_pb_blurb_2 .et-pb-icon{font-size:33px;color:#e6daa4;font-family:FontAwesome!important;font-weight:900!important}.et_pb_row_5,body #page-container .et-db #et-boc .et-l .et_pb_row_5.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_5.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_5.et_pb_row{width:100%;max-width:1920px}.et_pb_image_2{filter:saturate(200%) brightness(159%) contrast(107%);backface-visibility:hidden;text-align:left;margin-left:0}html:not(.et_fb_edit_enabled) #et-fb-app .et_pb_image_2:hover{filter:saturate(200%) brightness(159%) contrast(107%)}.et_pb_section_2.et_pb_section{padding-bottom:35px;background-color:#3f0000!important}.et_pb_row_6,body #page-container .et-db #et-boc .et-l .et_pb_row_6.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_6.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_6.et_pb_row,.et_pb_row_11,body #page-container .et-db #et-boc .et-l .et_pb_row_11.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_11.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_11.et_pb_row,.et_pb_row_12,body #page-container .et-db #et-boc .et-l .et_pb_row_12.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_12.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_12.et_pb_row,.et_pb_row_14,body #page-container .et-db #et-boc .et-l .et_pb_row_14.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_14.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_14.et_pb_row,.et_pb_row_15,body #page-container .et-db #et-boc .et-l .et_pb_row_15.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_15.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_15.et_pb_row{width:90%;max-width:1280px}.et_pb_text_4,.et_pb_text_8{padding-bottom:8px!important;margin-top:-10px!important;margin-bottom:-4px!important}.et_pb_text_5 h1,.et_pb_text_9 h1{font-family:'Roboto Bold',Helvetica,Arial,Lucida,sans-serif;font-size:35px;color:#FFFFFF!important;line-height:1.3em;text-align:left}.et_pb_text_5 h2,.et_pb_text_9 h2{font-family:'Poppins Regular',Helvetica,Arial,Lucida,sans-serif;font-size:20px;color:rgba(255,255,255,0.87)!important;line-height:1.4em;text-align:left}.et_pb_text_5,.et_pb_text_9{margin-bottom:0px!important}.et_pb_row_7.et_pb_row{padding-bottom:0px!important;margin-top:5px!important;margin-right:auto!important;margin-left:auto!important;padding-bottom:0px}.et_pb_image_3{margin-bottom:20px!important;width:100%;max-width:100%;text-align:center}.et_pb_blurb_3.et_pb_blurb .et_pb_module_header,.et_pb_blurb_3.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_4.et_pb_blurb .et_pb_module_header,.et_pb_blurb_4.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_5.et_pb_blurb .et_pb_module_header,.et_pb_blurb_5.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_6.et_pb_blurb .et_pb_module_header,.et_pb_blurb_6.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_7.et_pb_blurb .et_pb_module_header,.et_pb_blurb_7.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_8.et_pb_blurb .et_pb_module_header,.et_pb_blurb_8.et_pb_blurb .et_pb_module_header a{font-family:'Poppins Regular',Helvetica,Arial,Lucida,sans-serif;font-weight:600;text-transform:uppercase;font-size:18px;color:#e6daa4!important;line-height:1.3em;text-align:left}.et_pb_blurb_3.et_pb_blurb,.et_pb_blurb_4.et_pb_blurb,.et_pb_blurb_5.et_pb_blurb,.et_pb_blurb_6.et_pb_blurb,.et_pb_blurb_7.et_pb_blurb,.et_pb_blurb_8.et_pb_blurb{font-family:'Poppins Light',Helvetica,Arial,Lucida,sans-serif;font-size:16px;color:#FFFFFF!important;line-height:1.4em;border-radius:5px 5px 5px 5px;overflow:hidden;padding-right:15px!important;padding-left:15px!important}.et_pb_blurb_3 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap,.et_pb_blurb_3 .et_pb_main_blurb_image .et-pb-icon,.et_pb_blurb_4 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap,.et_pb_blurb_4 .et_pb_main_blurb_image .et-pb-icon,.et_pb_blurb_5 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap,.et_pb_blurb_5 .et_pb_main_blurb_image .et-pb-icon,.et_pb_blurb_6 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap,.et_pb_blurb_6 .et_pb_main_blurb_image .et-pb-icon,.et_pb_blurb_7 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap,.et_pb_blurb_7 .et_pb_main_blurb_image .et-pb-icon,.et_pb_blurb_8 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap,.et_pb_blurb_8 .et_pb_main_blurb_image .et-pb-icon{margin-bottom:-9px!important;background-color:RGBA(255,255,255,0)}.et_pb_blurb_3.et_pb_blurb .et_pb_image_wrap,.et_pb_blurb_4.et_pb_blurb .et_pb_image_wrap,.et_pb_blurb_5.et_pb_blurb .et_pb_image_wrap,.et_pb_blurb_6.et_pb_blurb .et_pb_image_wrap,.et_pb_blurb_7.et_pb_blurb .et_pb_image_wrap,.et_pb_blurb_8.et_pb_blurb .et_pb_image_wrap{margin:auto auto auto 0}.et_pb_blurb_3 .et_pb_main_blurb_image .et_pb_image_wrap,.et_pb_blurb_4 .et_pb_main_blurb_image .et_pb_image_wrap,.et_pb_blurb_5 .et_pb_main_blurb_image .et_pb_image_wrap,.et_pb_blurb_6 .et_pb_main_blurb_image .et_pb_image_wrap,.et_pb_blurb_7 .et_pb_main_blurb_image .et_pb_image_wrap,.et_pb_blurb_8 .et_pb_main_blurb_image .et_pb_image_wrap{width:26px}.et_pb_image_4{width:100%;text-align:left;margin-left:0}.et_pb_image_5,.et_pb_image_8{width:100%;max-width:100%!important;text-align:center}.et_pb_row_8.et_pb_row{padding-bottom:0px!important;margin-top:30px!important;margin-right:auto!important;margin-left:auto!important;padding-bottom:0px}.et_pb_image_6{width:100%;max-width:100%;text-align:center}.et_pb_image_7{width:100%;max-width:100%!important;text-align:left;margin-left:0}.et_pb_row_9{background-image:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(118,7,7,0.5) 15%,rgba(118,7,7,0.5) 84%,rgba(255,255,255,0) 100%)}.et_pb_row_9.et_pb_row{padding-right:100px!important;padding-left:300px!important;margin-top:80px!important;margin-bottom:30px!important;padding-right:100px;padding-left:300px}.et_pb_row_9,body #page-container .et-db #et-boc .et-l .et_pb_row_9.et_pb_row,body.et_pb_pagebuilder_layout.single #page-container #et-boc .et-l .et_pb_row_9.et_pb_row,body.et_pb_pagebuilder_layout.single.et_full_width_page #page-container #et-boc .et-l .et_pb_row_9.et_pb_row{width:90%;max-width:1800px}.et_pb_image_9 .et_pb_image_wrap{border-radius:10px 10px 10px 10px;overflow:hidden;border-width:2px;border-color:#e6daa4;box-shadow:0px 2px 18px 0px rgba(230,218,164,0.29)}.et_pb_image_9{text-align:right;margin-right:0}.et_pb_text_6,.et_pb_text_10,.et_pb_text_11,.et_pb_text_12{padding-bottom:8px!important;margin-bottom:-4px!important}.et_pb_text_7{line-height:1.5em;font-family:'Poppins Regular',Helvetica,Arial,Lucida,sans-serif;font-size:18px;line-height:1.5em;margin-bottom:11px!important}.et_pb_text_7 h4{font-family:'Poppins Light',Helvetica,Arial,Lucida,sans-serif;font-size:17px;color:#FFFFFF!important;line-height:1.4em}.et_pb_text_7 h5{font-family:'Poppins Light',Helvetica,Arial,Lucida,sans-serif;font-size:18px;color:#FFFFFF!important}.et_pb_button_0_wrapper .et_pb_button_0,.et_pb_button_0_wrapper .et_pb_button_0:hover,.et_pb_button_1_wrapper .et_pb_button_1,.et_pb_button_1_wrapper .et_pb_button_1:hover,.et_pb_button_2_wrapper .et_pb_button_2,.et_pb_button_2_wrapper .et_pb_button_2:hover{padding-top:10px!important;padding-right:30px!important;padding-bottom:10px!important;padding-left:30px!important}body #page-container .et_pb_section .et_pb_button_0,body #page-container .et_pb_section .et_pb_button_1,body #page-container .et_pb_section .et_pb_button_2{color:#000000!important;border-width:0px!important;border-color:#FFFFFF;border-radius:6px;font-size:18px;font-family:'Poppins Medium',Helvetica,Arial,Lucida,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;text-decoration:underline!important;-webkit-text-decoration-color:RGBA(255,255,255,0)!important;text-decoration-color:RGBA(255,255,255,0)!important;background-image:radial-gradient(ellipse at top,#e6d69e 0%,#e5d187 100%);background-color:#e9cc81}body #page-container .et_pb_section .et_pb_button_0:before,body #page-container .et_pb_section .et_pb_button_0:after,body #page-container .et_pb_section .et_pb_button_1:before,body #page-container .et_pb_section .et_pb_button_1:after,body #page-container .et_pb_section .et_pb_button_2:before,body #page-container .et_pb_section .et_pb_button_2:after{display:none!important}.et_pb_button_0,.et_pb_button_1,.et_pb_button_2{box-shadow:0px 5px 0px 0px #fff59e}.et_pb_button_0_wrapper a:hover,.et_pb_button_1_wrapper a:hover,.et_pb_button_2_wrapper a:hover{transform:scaleX(1.05) scaleY(1.05)!important}.et_pb_button_0_wrapper,.et_pb_button_2_wrapper{transition:transform 300ms ease 0ms}.et_pb_button_0,.et_pb_button_0:after,.et_pb_button_1,.et_pb_button_1:after,.et_pb_button_2,.et_pb_button_2:after{transition:all 300ms ease 0ms}.et_pb_section_3.et_pb_section{padding-top:12px;background-color:#4c0000!important}.et_pb_row_12.et_pb_row{margin-right:auto!important;margin-left:auto!important}.et_pb_text_10 h2,.et_pb_text_11 h2,.et_pb_text_12 h2{font-family:'Poppins Regular',Helvetica,Arial,Lucida,sans-serif;font-size:18px;color:#FFFFFF!important;line-height:1.3em;text-align:left}.et_pb_video_0 .et_pb_video_overlay_hover:hover,.et_pb_video_1 .et_pb_video_overlay_hover:hover,.et_pb_video_2 .et_pb_video_overlay_hover:hover{background-color:rgba(0,0,0,.6)}.et_pb_image_11{width:100%;text-align:center}div.et_pb_section.et_pb_section_4{background-image:var(--wpr-bg-0872cad3-2be0-4502-9508-e33f28026ee1),linear-gradient(180deg,#4c0000 0%,#3f0000 100%)!important}.et_pb_section_4.et_pb_section{padding-top:180px;padding-bottom:180px;background-color:#3f0000!important}.et_pb_row_13.et_pb_row{padding-top:15px!important;padding-bottom:0px!important;padding-top:15px;padding-bottom:0px}.et_pb_text_13 h1{color:#FFFFFF!important;line-height:1.3em}.et_pb_text_13 h2{font-family:'Poppins Regular',Helvetica,Arial,Lucida,sans-serif;font-size:30px;color:#FFFFFF!important;line-height:1.3em;text-align:left}.et_pb_text_13{margin-bottom:5px!important}.et_pb_button_1_wrapper{margin-top:10px!important;transition:transform 300ms ease 0ms}div.et_pb_section.et_pb_section_5{background-image:linear-gradient(180deg,rgba(255,255,255,0) 91%,#3f0000 100%),var(--wpr-bg-55e4a34d-61b5-41d4-8477-89c79d929e8d)!important}.et_pb_section_5.et_pb_section{padding-top:21px;padding-bottom:697px;margin-bottom:0px;background-color:#3f0000!important}.et_pb_row_14.et_pb_row{padding-top:33px!important;padding-bottom:0px!important;padding-top:33px;padding-bottom:0px}.et_pb_section_6.et_pb_section{padding-top:23px;padding-bottom:0px;background-color:#3f0000!important}.et_pb_section_7.et_pb_section{padding-top:26px;padding-bottom:26px;background-color:#3f0000!important}.et_pb_row_17.et_pb_row{padding-top:15px!important;padding-top:15px}.et_pb_column_8,.et_pb_column_9,.et_pb_column_10{background-color:#3f0000;border-radius:3px 3px 3px 3px;overflow:hidden;border-width:1px;border-color:#e6daa4;padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px}.et_pb_column_13,.et_pb_column_14,.et_pb_column_15,.et_pb_column_16,.et_pb_column_17,.et_pb_column_18{background-color:#910b1d;border-radius:20px 0 20px 0;overflow:hidden;border-width:2px;border-color:RGBA(255,255,255,0);padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;transition:border 300ms ease 0ms}.et_pb_column_13:hover,.et_pb_column_14:hover,.et_pb_column_15:hover,.et_pb_column_16:hover,.et_pb_column_17:hover,.et_pb_column_18:hover{border-color:rgba(246,228,143,0.48)}.et_pb_column_25,.et_pb_column_26,.et_pb_column_27{background-color:#280000;border-radius:10px 10px 10px 10px;overflow:hidden;border-width:1px;border-color:rgba(158,55,55,0.59);padding-top:20px;padding-right:15px;padding-bottom:20px;padding-left:15px}@media only screen and (min-width:981px){.et_pb_row_0,.et_pb_section_6{display:none!important}.et_pb_image_0{width:6%;display:none!important}.et_pb_image_1{width:39%}.et_pb_image_9{width:100%}.et_pb_image_12{width:30%;display:none!important}}@media only screen and (max-width:980px){.et_pb_section_0{border-bottom-width:5px;border-bottom-color:#d2a687}.et_pb_section_0.et_pb_section{padding-top:90px;padding-bottom:90px}.et_pb_image_0{width:6%}.et_pb_image_0 .et_pb_image_wrap img,.et_pb_image_1 .et_pb_image_wrap img,.et_pb_image_2 .et_pb_image_wrap img,.et_pb_image_3 .et_pb_image_wrap img,.et_pb_image_4 .et_pb_image_wrap img,.et_pb_image_6 .et_pb_image_wrap img,.et_pb_image_9 .et_pb_image_wrap img,.et_pb_image_10 .et_pb_image_wrap img,.et_pb_image_11 .et_pb_image_wrap img,.et_pb_image_12 .et_pb_image_wrap img{width:auto}.et_pb_image_1{width:46%}.et_pb_text_0 h2,.et_pb_text_1 h2,.et_pb_text_2 h2,.et_pb_text_5 h2,.et_pb_text_9 h2{font-size:20px;text-align:left}.et_pb_text_0,.et_pb_text_1,.et_pb_text_2{margin-bottom:12px!important}.formulario_estrategia_0{margin-left:-40px}.et_pb_row_3.et_pb_row{margin-top:50px!important}.et_pb_text_3 h1,.et_pb_text_4 h1,.et_pb_text_6 h1,.et_pb_text_8 h1,.et_pb_text_10 h1,.et_pb_text_11 h1,.et_pb_text_12 h1,.et_pb_text_14 h1,.et_pb_text_15 h1{font-size:35px;text-align:center}.et_pb_text_3 h2,.et_pb_text_4 h2,.et_pb_text_6 h2,.et_pb_text_8 h2,.et_pb_text_10 h2,.et_pb_text_11 h2,.et_pb_text_12 h2,.et_pb_text_14 h2,.et_pb_text_15 h2{font-size:30px;text-align:left}.et_pb_row_4.et_pb_row{margin-top:80px!important;margin-right:auto!important;margin-left:auto!important}.et_pb_section_2.et_pb_section{padding-bottom:35px}.et_pb_text_5 h1,.et_pb_text_9 h1{font-size:35px;text-align:left}.et_pb_blurb_3.et_pb_blurb .et_pb_module_header,.et_pb_blurb_3.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_3.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_4.et_pb_blurb .et_pb_module_header,.et_pb_blurb_4.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_4.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_5.et_pb_blurb .et_pb_module_header,.et_pb_blurb_5.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_5.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_6.et_pb_blurb .et_pb_module_header,.et_pb_blurb_6.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_6.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_7.et_pb_blurb .et_pb_module_header,.et_pb_blurb_7.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_7.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_8.et_pb_blurb .et_pb_module_header,.et_pb_blurb_8.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_8.et_pb_blurb .et_pb_blurb_description{text-align:left}.et_pb_blurb_3.et_pb_blurb,.et_pb_blurb_4.et_pb_blurb,.et_pb_blurb_5.et_pb_blurb,.et_pb_blurb_6.et_pb_blurb,.et_pb_blurb_7.et_pb_blurb,.et_pb_blurb_8.et_pb_blurb{font-size:18px;padding-right:15px!important;padding-left:15px!important}.et_pb_row_9.et_pb_row{padding-right:270px!important;padding-left:270px!important;margin-top:80px!important;padding-right:270px!important;padding-left:270px!important}.et_pb_image_9{width:64%}.et_pb_text_7{font-size:18px}.et_pb_button_0_wrapper .et_pb_button_0,.et_pb_button_0_wrapper .et_pb_button_0:hover,.et_pb_button_1_wrapper .et_pb_button_1,.et_pb_button_1_wrapper .et_pb_button_1:hover,.et_pb_button_2_wrapper .et_pb_button_2,.et_pb_button_2_wrapper .et_pb_button_2:hover{padding-top:11px!important;padding-right:70px!important;padding-bottom:11px!important;padding-left:70px!important}.et_pb_button_0_wrapper,.et_pb_button_1_wrapper,.et_pb_button_2_wrapper{margin-top:10px!important}body #page-container .et_pb_section .et_pb_button_0,body #page-container .et_pb_section .et_pb_button_1,body #page-container .et_pb_section .et_pb_button_2{font-size:16px!important}.et_pb_section_4.et_pb_section{padding-top:147px;padding-bottom:147px;background-color:#3f0000!important}.et_pb_text_13 h2{font-size:32px;text-align:left}.et_pb_text_13{margin-bottom:5px!important}.et_pb_image_12{width:30%}.et_pb_column_8,.et_pb_column_9,.et_pb_column_10{padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px}.et_pb_column_25,.et_pb_column_26,.et_pb_column_27{padding-top:20px;padding-right:15px;padding-bottom:20px;padding-left:15px}}@media only screen and (min-width:768px) and (max-width:980px){.et_pb_row_0,.et_pb_image_0,.et_pb_image_2,.et_pb_image_12,.et_pb_section_6{display:none!important}}@media only screen and (max-width:767px){div.et_pb_section.et_pb_section_0{background-image:initial!important}.et_pb_section_0{border-bottom-width:5px;border-bottom-color:#d2a687}.et_pb_section_0.et_pb_section{padding-top:0px;padding-bottom:30px;background-color:#2e0000!important}.et_pb_image_0,.et_pb_image_12{width:100%}.et_pb_image_0 .et_pb_image_wrap img,.et_pb_image_1 .et_pb_image_wrap img,.et_pb_image_2 .et_pb_image_wrap img,.et_pb_image_3 .et_pb_image_wrap img,.et_pb_image_4 .et_pb_image_wrap img,.et_pb_image_6 .et_pb_image_wrap img,.et_pb_image_9 .et_pb_image_wrap img,.et_pb_image_10 .et_pb_image_wrap img,.et_pb_image_11 .et_pb_image_wrap img,.et_pb_image_12 .et_pb_image_wrap img{width:auto}.et_pb_image_1{width:50%;display:none!important;text-align:center;margin-left:auto;margin-right:auto}.et_pb_text_0 h2{font-size:20px;text-align:center}.et_pb_text_0{margin-top:-10px!important;margin-bottom:0px!important}.et_pb_text_1 h2,.et_pb_text_5 h2,.et_pb_text_9 h2,.et_pb_text_10 h2,.et_pb_text_11 h2,.et_pb_text_12 h2{font-size:18px;text-align:center}.et_pb_text_1,.et_pb_row_3.et_pb_row{margin-top:0px!important}.et_pb_text_2 h2{font-size:16px;text-align:center}.et_pb_text_2{margin-top:0px!important;margin-bottom:-40px!important}.formulario_estrategia_0{margin-left:0px}.et_pb_text_3 h1,.et_pb_text_4 h1,.et_pb_text_5 h1,.et_pb_text_6 h1,.et_pb_text_8 h1,.et_pb_text_9 h1,.et_pb_text_10 h1,.et_pb_text_11 h1,.et_pb_text_12 h1,.et_pb_text_14 h1,.et_pb_text_15 h1{font-size:25px;text-align:center}.et_pb_text_3 h2,.et_pb_text_4 h2,.et_pb_text_6 h2,.et_pb_text_8 h2,.et_pb_text_14 h2,.et_pb_text_15 h2{font-size:24px;text-align:center}.et_pb_row_4.et_pb_row{margin-top:0px!important;margin-right:auto!important;margin-bottom:0px!important;margin-left:auto!important}.et_pb_image_2,.et_pb_section_5{display:none!important}.et_pb_section_2.et_pb_section{padding-bottom:10px}.et_pb_blurb_3.et_pb_blurb .et_pb_module_header,.et_pb_blurb_3.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_3.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_4.et_pb_blurb .et_pb_module_header,.et_pb_blurb_4.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_4.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_5.et_pb_blurb .et_pb_module_header,.et_pb_blurb_5.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_5.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_6.et_pb_blurb .et_pb_module_header,.et_pb_blurb_6.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_6.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_7.et_pb_blurb .et_pb_module_header,.et_pb_blurb_7.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_7.et_pb_blurb .et_pb_blurb_description,.et_pb_blurb_8.et_pb_blurb .et_pb_module_header,.et_pb_blurb_8.et_pb_blurb .et_pb_module_header a,.et_pb_blurb_8.et_pb_blurb .et_pb_blurb_description{text-align:center}.et_pb_blurb_3.et_pb_blurb,.et_pb_blurb_4.et_pb_blurb,.et_pb_blurb_5.et_pb_blurb,.et_pb_blurb_6.et_pb_blurb,.et_pb_blurb_7.et_pb_blurb,.et_pb_blurb_8.et_pb_blurb{font-size:16px;padding-right:10px!important;padding-left:10px!important}.et_pb_row_9.et_pb_row{padding-right:0px!important;padding-left:0px!important;margin-top:0px!important;padding-right:0px!important;padding-left:0px!important}.et_pb_image_9{width:59%;text-align:center;margin-left:auto;margin-right:auto}.et_pb_text_7{font-size:16px}.et_pb_button_0_wrapper .et_pb_button_0,.et_pb_button_0_wrapper .et_pb_button_0:hover,.et_pb_button_1_wrapper .et_pb_button_1,.et_pb_button_1_wrapper .et_pb_button_1:hover,.et_pb_button_2_wrapper .et_pb_button_2,.et_pb_button_2_wrapper .et_pb_button_2:hover{padding-top:11px!important;padding-right:18px!important;padding-bottom:11px!important;padding-left:18px!important}.et_pb_button_0_wrapper,.et_pb_button_2_wrapper{margin-top:0px!important;margin-bottom:0px!important}div.et_pb_section.et_pb_section_4{background-image:linear-gradient(180deg,#4c0000 0%,#3f0000 100%)!important}.et_pb_section_4.et_pb_section{padding-top:20px;padding-bottom:20px;background-color:#3f0000!important}.et_pb_text_13 h2{font-size:22px;text-align:center}.et_pb_text_13{margin-top:-14px!important;margin-bottom:15px!important}.et_pb_button_1_wrapper{margin-top:25px!important;margin-bottom:20px!important}.et_pb_column_8,.et_pb_column_9,.et_pb_column_10,.et_pb_column_25,.et_pb_column_26,.et_pb_column_27{padding-right:10px;padding-left:10px}}</style><script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://mkt.estrategia.com/oab/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
